@@ -6,7 +6,7 @@ let loginInfo = {
 // formのイベント
 $(function() {
     $.ajax({ //ログインチェック(マイページ遷移用)
-            url: 'http://localhost:8080/api/member/logincheck.php', //送信先
+            url: 'http://192.168.137.1:8080/api/member/logincheck.php', //送信先
             type: 'POST', //送信方法
             datatype: 'json', //受け取りデータの種類
             data: {
@@ -50,7 +50,7 @@ function getLogin() {
     loginInfo['password'] = $('#exampleInputPassword1').val()
 
     $.ajax({
-            url: '/api/member/login.php', //送信先
+            url: 'http://192.168.137.1:8080/api/member/login.php', //送信先
             type: 'POST', //送信方法
             datatype: 'json', //受け取りデータの種類
             data: {
