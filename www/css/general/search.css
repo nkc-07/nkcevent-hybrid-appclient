@@ -1,0 +1,14 @@
+.form-inline {
+    margin: 10px 20px 0 0;
+}
+
+.serch-button {
+    background-image: url(/public/image/svg/search.svg);
+    background-size: contain;
+    height: 30px;
+    width: 30px;
+}
+
+.form-inline input {
+    margin: 0 0 0 auto;
+}

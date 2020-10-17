@@ -1,0 +1,18 @@
+.user-icon {
+    float: right;
+}
+
+.user-icon img {
+    width: 40px;
+    height: auto;
+}
+
+.user-icon p {
+    margin: 0 5px 0 0;
+    font-size: large;
+    display: inline;
+}
+
+.card-link {
+    color: #212529;
+}

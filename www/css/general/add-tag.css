@@ -1,0 +1,10 @@
+#modal .tag-card:hover {
+    color: #dc3545;
+    font-size: 1.25rem;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.detail-box .tag-box .tag-card {
+    pointer-events: none;
+}

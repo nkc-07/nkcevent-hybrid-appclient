@@ -1,0 +1,14 @@
+.drawer-hamburger-icon,
+.drawer-hamburger-icon:after,
+.drawer-hamburger-icon:before {
+    background-color: white;
+}
+
+.drawer-hamburger {
+    position: static;
+}
+
+.drawer-nav span {
+    display: block;
+    margin: 10px;
+}

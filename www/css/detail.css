@@ -1,0 +1,136 @@
+.navbar a img {
+    width: 40px;
+    height: auto;
+}
+
+.detail-box {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid rgba(0, 0, 0, .125);
+}
+
+.day-box {
+    background-image: url(/public/image/svg/day_icon.svg);
+    width: 100px;
+    height: 100px;
+    background-size: 100% auto;
+    float: left;
+    margin: 10px;
+}
+
+.event-top {
+    position: relative;
+    text-align: center;
+}
+
+.event-title {
+    text-align: left;
+}
+
+.event-img {
+    max-width: 900px;
+    height: auto;
+    width: 75%;
+}
+
+.create-day {
+    float: right;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.user-icon {
+    margin: 20px 0 0 0;
+}
+
+.text-right .user-img {
+    height: 35px;
+    width: auto;
+}
+
+.text-right .participation-event {
+    background-color: #00152C;
+    color: #fff;
+    margin: 0 0 0 30px;
+    float: right;
+}
+
+.text-right .participation-event:disabled {
+    cursor: auto;
+}
+
+.text-right .under-button {
+    float: none;
+}
+
+.cancel {
+    display: none;
+}
+
+.cancellation {
+    display: none;
+}
+
+.event-box {
+    margin: 10px;
+    margin-top: 30px;
+    padding: 10px;
+}
+
+.event-info {
+    display: inline;
+}
+
+.event-info div {
+    width: 50%;
+    float: left;
+}
+
+.event-info table td {
+    vertical-align: middle;
+}
+
+.event-info .googlemap-addres {
+    float: left;
+    display: contents;
+}
+
+.member-limit {
+    text-align: center;
+}
+
+.tag-box {
+    border: 1px solid rgba(0, 0, 0, .125);
+    margin: 30px 10px 0 10px;
+    padding: 10px;
+}
+
+.tag-box .tag-card {
+    float: left;
+}
+
+.tag-box a {
+    color: #212529;
+}
+
+.tag-box .tag-card img {
+    width: 25px;
+    margin: 0 0 0 10px;
+}
+
+.clear-float {
+    display: inline-block;
+}
+
+.cancellation-text {
+    display: none;
+    font-size: xx-large;
+    border-style: double;
+    color: #ff0000;
+    width: 65px;
+    height: 45px;
+    margin-left: auto;
+    margin-right: 10px;
+}

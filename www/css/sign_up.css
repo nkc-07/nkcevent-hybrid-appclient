@@ -1,0 +1,60 @@
+p {
+  font-size: 20pt;
+}
+
+.maininfo {
+  /* border: solid;
+  margin: 30px 280px 30px 280px;
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.125); */
+  position: absolute; /* 位置指定 */
+  margin-left: 38%;
+  margin-right: auto;
+}
+
+.create-btn {
+  /* display: block;
+  margin: 0 0 0 auto;*/
+  font-size: 20pt;
+  background-color: #007bff;
+  color: #ffffff;
+  border: 0px;
+}
+
+.radiosize {
+  font-size: 23px;
+}
+
+input[type="radio"] {
+  width: 23px;
+  height: 23px;
+  vertical-align: middle;
+}
+
+.test {
+  text-align: center;
+}
+
+input[type="text"] {
+  width: 100%;
+}
+
+input[type="password"] {
+  width: 100%;
+}
+
+.title {
+  text-align: center;
+}
+
+.mail-err-text,
+.pass-err-text,
+.name-err-text,
+.gender-err-text,
+.birthday-err-text,
+.repass-err-text {
+  font-size: initial;
+  font-size: 15pt;
+  color: red;
+  display: none;
+}

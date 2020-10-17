@@ -1,0 +1,14 @@
+{
+  "name": "drawer.min",
+  "_cacheHeaders": {
+    "ETag": "W/\"5afd4922-b36\"",
+    "Last-Modified": "Thu, 17 May 2018 09:19:30 GMT",
+    "Content-Type": "application/javascript; charset=utf-8"
+  },
+  "_release": "e-tag:W/\"5afd492",
+  "main": "index.js",
+  "_source": "https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/js/drawer.min.js",
+  "_target": "*",
+  "_originalSource": "https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/js/drawer.min.js",
+  "_direct": true
+}

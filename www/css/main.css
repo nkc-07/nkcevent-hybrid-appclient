@@ -1,0 +1,68 @@
+.profile-img {
+    display: flex;
+    flex-direction: column;
+    float: left;
+    width: 20%;
+    align-items: center;
+}
+
+.profile {
+    width: 80%;
+    float: right;
+}
+
+.card {
+    display: inline-block;
+}
+
+.card.login-card ul {
+    list-style: none;
+}
+
+.change-confirm-buttons :first-child {
+    margin-right: 10%;
+}
+
+.card.login-card .btn {
+     /* margin-left: 80%; */
+     /*position: absolute;*/
+     right: 20px;
+}
+
+.password-change {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    float: left;
+    width: 55%;
+    height: auto;
+    margin: 50px 0 0 30px;
+    padding: 20px;
+}
+
+.login-card {
+    width: auto;
+    min-width: 35%;
+}
+
+.login-err-text {
+    color: red;
+    display: none;
+}
+
+.login-button {
+    margin: 0 0 0 30px;
+    position: absolute;
+    white-space: nowrap;
+}
+
+.btn-mypage {
+    margin: 0 30px 0 0;
+    white-space: nowrap;
+}
+
+.login-err {
+    display: none;
+}

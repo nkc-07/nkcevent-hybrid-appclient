@@ -1,0 +1,89 @@
+.card {
+    margin: 20px;
+    padding: 10px;
+}
+
+.card-box {
+    padding: 20px;
+}
+
+.organizer-box {
+    width: calc(50% - 40px);
+    min-width: max-content;
+    height: 200px;
+    float: left;
+}
+
+.user-icon {
+    margin: 0 0 0 50px;
+    position: relative;
+}
+
+.user-icon img {
+    height: 100px;
+    width: auto;
+    float: left;
+}
+
+.user-icon p {
+    position: absolute;
+    top: 50%;
+    left: 180px;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.qrcode-box {
+    width: calc(50% - 40px);
+    min-width: max-content;
+    height: 200px;
+    float: left;
+    display: block;
+}
+
+#qrcode-table {
+    height: calc(200px - 20px);
+    width: auto;
+    float: left;
+}
+
+.qrcode-box p {
+    margin: 0 0 0 10px;
+    float: left;
+}
+
+.dropdown {
+    margin: 20px;
+    text-align: right;
+}
+
+.attendance-table {
+    margin: 20px;
+}
+
+.attendance-table .user-icon p {
+    position: absolute;
+    top: 20px;
+    left: 120px;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.attendance-table .user-icon img {
+    width: 50px;
+    height: auto;
+}
+
+.attendance-table .dropdown {
+    width: 120px;
+    margin: 0;
+    text-align: left;
+}
+
+.svg {
+    width: 50px;
+    display: block;
+    /* margin: 20px auto 0 0; */
+}
