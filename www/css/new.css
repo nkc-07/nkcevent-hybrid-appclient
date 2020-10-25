@@ -14,7 +14,7 @@ input {
 }
 
 .day-box {
-    background-image: url(/image/svg/day_icon.svg);
+    background-image: url(http://192.168.137.1:8080/public/image/svg/day_icon.svg);
     background-repeat: no-repeat;
     width: 100px;
     height: 100px;

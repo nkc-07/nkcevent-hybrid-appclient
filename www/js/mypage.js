@@ -256,7 +256,7 @@ function getUserIconName() {
                             console.log(response)
 
                             let imageName = JSON.parse(response)
-                            resolve('/image/' + imageName['data'])
+                            resolve('http://192.168.137.1:8080/public/image/' + imageName['data'])
                         })
                         .fail(function(response) {
                             console.log('通信失敗')
