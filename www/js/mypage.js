@@ -44,7 +44,7 @@ $(function() {
             console.log(sendMemberInfo)
 
             let birtday = memberInfo['birthday'].split('-')
-            $('.user-icon').attr('src', memberInfo['icon'])
+            $('.user-icon').attr('src', 'http://192.168.137.1:8080/' + memberInfo['icon'])
             $('.nickname').val(memberInfo['nickname'])
             $('.mailaddress').val(memberInfo['mailaddress'])
             $('.target-year').text(birtday[0])

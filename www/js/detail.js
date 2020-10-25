@@ -139,7 +139,7 @@ $(function() {
 
                     $(".event-top .event-title").text(geteventInfo['eventname']);
                     $(".event-comment").html(marked(geteventInfo['eventcomment']));
-                    $(".event-top .event-img").attr("src", geteventInfo["image"]);
+                    $(".event-top .event-img").attr("src", 'http://192.168.137.1:8080/' + geteventInfo["image"]);
                     $(".event-top .create-day").text(geteventInfo["postdate"])
                     $(".detail-box .day-box").attr("src", geteventInfo["deadlinedate"]);
                     $(".drawer-menu .drawer-brand").text(geteventInfo["postdate"]);
@@ -161,7 +161,7 @@ $(function() {
 
                     //ユーザ名の追加
                     $(".user-icon span").text(geteventInfo["organizer_nickname"])
-                    $(".user-icon img").attr("src", geteventInfo["organizer_icon"])
+                    $(".user-icon img").attr("src", 'http://192.168.137.1:8080/' + geteventInfo["organizer_icon"])
 
                     helddate = new Date(geteventInfo['helddate']);
                     let helddateday = ("0" + (helddate.getDate())).slice(-2);

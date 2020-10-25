@@ -69,7 +69,7 @@ $.ajax({
 }).done(function(response) {
     let memberInfo = response['data']['info'];
 
-    $('.user-img').attr('src', memberInfo['icon']);
+    $('.user-img').attr('src', 'http://192.168.137.1:8080' + memberInfo['icon']);
     $('.nickname').text(memberInfo['nickname']);
 
     createEventInfo['token_id'] = localStorage.getItem('token');

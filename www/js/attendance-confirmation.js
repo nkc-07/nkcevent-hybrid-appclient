@@ -90,7 +90,7 @@ $.ajax({
         if (!response['data']['info']['member_id'] == eventAttendanceId) {
             location.href = '/www/event-list/detail/?event-id=' + getRequestParams.get('event-id');
         } else {
-            $('.organizer-box img').attr('src', response['data']['info']['icon']);
+            $('.organizer-box img').attr('src', 'http://192.168.137.1:8080' + response['data']['info']['icon']);
             $('.organizer-box p').text(response['data']['info']['nickname']);
         }
     })
@@ -133,7 +133,7 @@ function showAttendanceList(changeDisplay) {
         if (items.is_attendance == changeDisplay || changeDisplay === "all") {
             tempAttendanceUserDom = attendanceUserDom.clone();
             tempAttendanceUserDom.addClass('member-id-' + items.member_id);
-            tempAttendanceUserDom.find('.user-icon img').attr('src', items.icon);
+            tempAttendanceUserDom.find('.user-icon img').attr('src', 'http://192.168.137.1:8080' + items.icon);
             tempAttendanceUserDom.find('.svg').attr('src', attendanceIcons[items.is_attendance].img);
             tempAttendanceUserDom.find('.dropdown-toggle').text(attendanceIcons[items.is_attendance].text);
             tempAttendanceUserDom.find('.user-icon p').text(items.nickname);
