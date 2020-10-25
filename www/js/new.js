@@ -15,6 +15,15 @@ $(function() {
             console.log(response);
             location.href = '/public/html/event-list/';
         })
+
+        $('input[type="number"].member_limit').keyup(function(e) {
+            if(
+                Number($('.member_limit').val()) < 0  ||
+                e.key == "-"
+            ) {
+                $('.member_limit').val("");
+            }
+        });
 });
 
 var simplemde = new SimpleMDE({
@@ -66,6 +75,7 @@ $.ajax({
     createEventInfo['token_id'] = localStorage.getItem('token');
 });
 
+let citieNameTmp = undefined;
 $('.postal-code').keyup(function(e) {
     let pattern = /^[0-9]{3}-?[0-9]{4}$/;
     if ($(this).val().match(pattern)) {
@@ -86,7 +96,7 @@ $('.postal-code').keyup(function(e) {
                         response.results[0].address2 +
                         response.results[0].address3;
                     $('.cities').val(citieName);
-                    createEventInfo['map'] = citieName;
+                    citieNameTmp = citieName;
                 }
             })
             //通信失敗
@@ -102,6 +112,9 @@ $('.held-date').attr('min', nowTime + 'T00:00');
 $('.deadline-date').attr('min', nowTime);
 $('.held-date').change(function(e) {
     $('.deadline-date').attr('max', $(this).val().split('T')[0]);
+    if($('.deadline-date').val() != "" && $('.deadline-date').val() > $('.held-date').val()){
+        $('.deadline-date').val("");
+    }
 
     let date = $(this).val().split('-');
 
@@ -109,7 +122,11 @@ $('.held-date').change(function(e) {
     $('.held-day').text(date[2].split('T')[0]);
     $('.held-time').text(date[2].split('T')[1]);
 });
-
+$('.deadline-date').change(function(e) {
+    if($('.held-date').val() != "" && $('.deadline-date').val() > $('.held-date').val()){
+        $('.deadline-date').val("");
+    }
+});
 let toDayObjcr = new Date();
 let toDayStr = toDayObjcr.getFullYear() + '-' +
     toDayObjcr.getMonth() + '-' +
@@ -131,7 +148,7 @@ $('.participation-event').click(function(e) {
     var reader = new FileReader();
     var file = $('.send-event-img').prop('files')[0];
     console.log(file);
-    if (!file.type.match(/^image\/(bmp|png|jpeg|gif)$/)) {
+    if (file.type.match(/^image\/(bmp|png|jpeg|gif)$/) === null) {
         alert("対応画像ファイル[bmp|png|jpeg|gif]");
         return;
     }
@@ -157,7 +174,7 @@ $('.participation-event').click(function(e) {
                 createEventInfo['event_kana'] = 'test_kana';
                 createEventInfo['event_comment'] = simplemde.value();
                 if ($('.street-number').val() !== "") {
-                    createEventInfo['map'] += $('.street-number').val();
+                    createEventInfo['map'] = citieNameTmp + $('.street-number').val();
                 } else {
                     createEventInfo['map'] = undefined;
                 }
@@ -166,7 +183,13 @@ $('.participation-event').click(function(e) {
                 }
                 createEventInfo['deadline_date'] = $('.deadline-date').val();
                 createEventInfo['held_date'] = $('.held-date').val();
-                createEventInfo['member_limit'] = $('.member_limit').val();
+                if(createEventInfo['deadline_date'] >= createEventInfo['held_date']){
+                    alert("締切日");
+                    return;
+                }
+                if($('.member_limit').val() >= 2 ) {
+                    createEventInfo['member_limit'] = $('.member_limit').val();
+                }
 
                 $.ajax({
                     url: '/api/event/eventinfo.php', //送信先

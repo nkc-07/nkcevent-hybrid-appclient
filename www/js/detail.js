@@ -19,6 +19,7 @@ let geteventInfo = {
     helddate: undefined,
     organizer_id: undefined,
     organizer_nickname: undefined,
+    organizer_icon: undefined,
     eventcancellation: undefined,
     memberlimit: undefined
 };
@@ -71,7 +72,7 @@ $(function() {
             sendMemberInfo = memberInfo;
             myMembername = memberInfo['nickname']
             myMemberId = memberInfo['member_id']
-            $(".user-icon img").attr("src", memberInfo["icon"])
+            //$(".user-icon img").attr("src", memberInfo["icon"])
         })
         .fail(function(response) {
             console.log('通信失敗');
@@ -98,6 +99,7 @@ $(function() {
             geteventInfo['helddate'] = eventdata.held_date;
             geteventInfo['organizer_id'] = eventdata.organizer_id;
             geteventInfo['organizer_nickname'] = eventdata.organizer_nickname;
+            geteventInfo['organizer_icon'] = eventdata.organizer_icon;
             geteventInfo['eventcancellation'] = eventdata.event_cancellation;
             geteventInfo['memberlimit'] = eventdata.member_limit;
             eventTags = response.data.event_tag;
@@ -117,19 +119,18 @@ $(function() {
 
                     $('#now-member').text(joindata.length)
 
+                    if (joindata.length >= geteventInfo['memberlimit']) {
+                        eventDisplayStatus = 1;
+                    }
+
                     joindata.forEach(function(e) {
                         if (e.member_id == myMemberId) {
-                            eventDisplayStatus = 1
+                            eventDisplayStatus = 2
                         }
                     })
 
-                    if (joindata.length >= geteventInfo['memberlimit']) {
-                        console.log('規定数に達している');
-                        eventDisplayStatus = 3;
-                    }
-
                     if (geteventInfo['organizer_id'] == myMemberId) {
-                        eventDisplayStatus = 2
+                        eventDisplayStatus = 3
                         if (geteventInfo['eventcancellation'] == 0) {
                             //押せなくする
                             eventDisplayStatus = 5
@@ -160,6 +161,7 @@ $(function() {
 
                     //ユーザ名の追加
                     $(".user-icon span").text(geteventInfo["organizer_nickname"])
+                    $(".user-icon img").attr("src",geteventInfo["organizer_icon"])
 
                     helddate = new Date(geteventInfo['helddate']);
                     let helddateday = ("0" + (helddate.getDate())).slice(-2);
@@ -191,10 +193,6 @@ $(function() {
                         case 4:
                             break;
                         case 3:
-                            /* 定員数に達している処理 */
-                            $('.participat').prop('disabled', true);
-                            break;
-                        case 2:
                             /* 主催者イベント処理 */
                             $('.attendance').show();
                             $('.attendance').attr('href', `/public/html/event-list/detail/attendance-confirmation/index.html?event-id=${getRequestParams.get('event-id')}`);
@@ -218,7 +216,7 @@ $(function() {
                                 })
                             })
                             break;
-                        case 1:
+                        case 2:
                             /* 参加者イベント処理 */
                             $(".participat").hide();
                             $(".cancel").show();
@@ -242,6 +240,10 @@ $(function() {
                                     });
                                 });
                             })
+                            break;
+                        case 1:
+                            /* 定員数に達している処理 */
+                            $('.participat').prop('disabled', true);
                             break;
                         case 0:
                             /* 通常イベント処理 */
