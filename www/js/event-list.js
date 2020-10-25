@@ -13,7 +13,7 @@ $(function() {
                 eventCardInfo.forEach(function(cardItem) {
                     cardDom = cardDom.clone();
                     console.log(cardDom);
-                    cardDom.attr('href', '/public/html/event-list/detail/index.html?event-id=' + cardItem.event_id);
+                    cardDom.attr('href', '/www/event-list/detail/index.html?event-id=' + cardItem.event_id);
                     cardDom.find('img').attr('src', cardItem.image);
                     cardDom.find('.card-body .held-date').text(cardItem.held_date);
                     cardDom.find('.card-body .event-name').text(cardItem.event_name);

@@ -60,7 +60,7 @@ $.ajax({
         }
     })
     .fail(function(response) {
-        location.href = '/public/html/event-list/detail/?event-id=' + getRequestParams.get('event-id');
+        location.href = '/www/event-list/detail/?event-id=' + getRequestParams.get('event-id');
         console.log('通信失敗');
         console.log(response);
     })
@@ -88,7 +88,7 @@ $.ajax({
     .done(function(response) {
         console.log(response)
         if (!response['data']['info']['member_id'] == eventAttendanceId) {
-            location.href = '/public/html/event-list/detail/?event-id=' + getRequestParams.get('event-id');
+            location.href = '/www/event-list/detail/?event-id=' + getRequestParams.get('event-id');
         } else {
             $('.organizer-box img').attr('src', response['data']['info']['icon']);
             $('.organizer-box p').text(response['data']['info']['nickname']);
@@ -123,7 +123,7 @@ $.ajax({
     })
 
 $(function() {
-    $('.detail-back-link').attr('href', '/public/html/event-list/detail/index.html?event-id=' + getRequestParams.get('event-id'));
+    $('.detail-back-link').attr('href', '/www/event-list/detail/index.html?event-id=' + getRequestParams.get('event-id'));
 })
 
 function showAttendanceList(changeDisplay) {

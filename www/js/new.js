@@ -8,12 +8,12 @@ $(function() {
             }
         })
         .done(function(response) {
-            if (!response.data.login) { location.href = '/public/html/'; }
+            if (!response.data.login) { location.href = '/www/'; }
         })
         .fail(function(response) {
             console.log('通信失敗');
             console.log(response);
-            location.href = '/public/html/event-list/';
+            location.href = '/www/event-list/';
         })
 
     $('input[type="number"].member_limit').keyup(function(e) {
@@ -198,7 +198,7 @@ $('.participation-event').click(function(e) {
                     data: createEventInfo
                 }).done(function(e) {
                     sendTag(e['data']);
-                    location.href = '/public/html/event-list/'
+                    location.href = '/www/event-list/'
                 }).fail(function(e) {
                     console.log('通信失敗');
                     console.log(e);

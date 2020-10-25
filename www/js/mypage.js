@@ -18,12 +18,12 @@ $(function() {
             }
         })
         .done(function(response) {
-            if (!response.data.login) { location.href = '/public/html/'; }
+            if (!response.data.login) { location.href = '/www/'; }
         })
         .fail(function(response) {
             console.log('通信失敗');
             console.log(response);
-            location.href = '/public/html/event-list/';
+            location.href = '/www/event-list/';
         })
 
     $.ajax({
@@ -200,7 +200,7 @@ function getParticipationEvent() {
                     .find('a')
                     .attr(
                         'href',
-                        '/public/html/event-list/detail/index.html?event-id=' +
+                        '/www/event-list/detail/index.html?event-id=' +
                         card.event_id
                     )
                 eventparticipationCloneDom.find('a').text(card.event_name)

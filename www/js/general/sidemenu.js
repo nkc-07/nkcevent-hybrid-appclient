@@ -31,7 +31,7 @@ if (localStorage.getItem('token') !== null) {
                 console.log(response);
                 localStorage.removeItem('token');
 
-                location.href = '/public/html/';
+                location.href = '/www/';
             })
             .fail(function(response) {
                 console.log('通信失敗');
