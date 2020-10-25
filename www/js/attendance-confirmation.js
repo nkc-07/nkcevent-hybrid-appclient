@@ -5,15 +5,15 @@ let userList; // 出席するメンバーのリスト
 let eventAttendanceId; // 主催者のID
 let attendanceIcons = { // 出席状況のアイコンとテキスト
     0: {
-        img: '/public/image/svg/question.svg',
+        img: '/image/svg/question.svg',
         text: '未確認'
     },
     1: {
-        img: '/public/image/svg/cross.svg',
+        img: '/image/svg/cross.svg',
         text: '欠席'
     },
     2: {
-        img: '/public/image/svg/check.svg',
+        img: '/image/svg/check.svg',
         text: '出席確認済み'
     }
 };

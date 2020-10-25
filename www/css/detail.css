@@ -10,7 +10,7 @@
 }
 
 .day-box {
-    background-image: url(/public/image/svg/day_icon.svg);
+    background-image: url(/image/svg/day_icon.svg);
     width: 100px;
     height: 100px;
     background-size: 100% auto;
