@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/public/vender/bootstrap-4.4.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/vender/sidemenu/drawer.min/index.css">
+    <link rel="stylesheet" href="/public/css/general/sidemenu.css">
+    <link rel="stylesheet" href="/public/css/sign_up.css">
+    <link rel="stylesheet" href="/public/css/general/password_checker.css">
+    <link rel="stylesheet" href="/public/css/general/loading.css">
+
+
+    <script src="/public/vender/jquery-3.5.1.min/index.js"></script>
+    <script src="/public/vender/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+    <script src="/public/vender/sidemenu/iscroll.min/index.js"></script>
+    <script src="/public/vender/sidemenu/drawer.3.2.2.min/index.js"></script>
+    <script src="/public/js/general/generatedate.js"></script>
+
+    <title>新規登録</title>
+</head>
+
+<body class="drawer drawer--right">
+    <div id="loader-bg">
+        <div id="loader">
+            <img src="/public/image/img-loading.gif" width="80" height="80" alt="Now Loading..." />
+            <p>Now Loading...</p>
+        </div>
+    </div>
+    <header role="banner">
+        <nav class="navbar navbar-light bg-light navbar-dark bg-dark">
+            <a href="/public/html/index.html" class="h1 navbar-brand text-white">新規登録</a>
+            <button type="button" class="text-white drawer-toggle drawer-hamburger">
+              <span class="sr-only">toggle navigation</span>
+            <span class="drawer-hamburger-icon"></span>
+            </button>
+            <nav class="drawer-nav navbar-dark bg-dark" role="navigation">
+                <ul class="drawer-menu">
+                    <li><a class="drawer-brand text-white" href="#">Test User</a></li>
+                    <li><a class="drawer-menu-item text-white" href="/public/html/index.html">トップページ</a></li>
+                    <li><a class="drawer-menu-item text-white" href="/public/html/mypage/event-participation/">参加イベント一覧</a></li>
+                    <li><a class="drawer-menu-item text-white" href="/public/html/event-list/index.html">イベント一覧</a></li>
+                    <li><a class="drawer-menu-item text-white" href="/public/html/event-list/new/index.html">イベント作成</a></li>
+                </ul>
+            </nav>
+        </nav>
+    </header>
+    </div>
+
+    <main>
+        <div class="title">
+            <p>新規登録</p>
+        </div>
+        <div class="maininfo">
+            <p>メールアドレス</p>
+            <input type="text" name="mail" class="mailadress" id="mail" placeholder="学校のメールアドレスを入力してください。">
+            <p class="mail-err-text" id="mail-err">メールアドレスを正しく入力してください。</p>
+
+
+            <div>
+                <p>パスワード</p>
+                <input type="password" name="pass" id="pass" placeholder="8文字以上英数字を含めて入力してください。" onkeyup="chkPass(this.value)">
+                <div class="scorebar">&nbsp;</div>
+            </div>
+            <p class="pass-err-text" id="pass-err">パスワードを正しく入力してください。</p>
+
+            <div>
+                <p>パスワード（確認）</p>
+                <input type="password" name="repass" id="repass" placeholder="8文字以上英数字を含めてで入力してください。">
+            </div>
+            <p class="repass-err-text" id="repass-err">パスワードが一致しません。</p>
+
+            <div>
+                <p>ニックネーム</p>
+                <input type="text" name="name" id="name">
+            </div>
+            <p class="name-err-text" id="name-err">ニックネームを入力してください。</p>
+
+            <div>
+                <p>性別</p>
+                <div class="radiosize">
+                    <input type="radio" class="radio" name="gender" value="0">男
+                    <input type="radio" class="radio" name="gender" value="1">女
+                    <input type="radio" class="radio" name="gender" value="2">その他
+                </div>
+            </div>
+            <p class="gender-err-text" id="gender-err">性別を選択してください。</p>
+
+
+            <div>
+                <p>生年月日</p>
+                <select id="year">
+                <option value="0">----</option>
+            </select> 年
+                <select id="month">
+                <option value="0">--</option>
+            </select> 月
+                <select id="date">
+                <option value="0">--</option>
+            </select> 日<br><br>
+            </div>
+            <p class="birthday-err-text" id="birthday-err">生年月日を入力してください。</p>
+
+            <input type="submit" id="sign-up" value="登録" class="create-btn" style="WIDTH: 400px;">
+        </div>
+
+        <script src="/public/js/sign_up.js"></script>
+        <script src="/public/js/general/password_checker.js"></script>
+        <script src="/public/js/general/sidemenu.js"></script>
+    </main>
+</body>
+
+</body>
+
+</html>
