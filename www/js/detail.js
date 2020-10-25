@@ -40,7 +40,7 @@ let sendeventInfo = {
 $(function() {
     //ログインチェック
     $.ajax({
-            url: '/api/member/logincheck.php', //送信先
+            url: 'http://192.168.137.1:8080/api/member/logincheck.php', //送信先
             type: 'POST', //送信方法
             datatype: 'json', //受け取りデータの種類
             data: {
@@ -59,7 +59,7 @@ $(function() {
 
     // 取得処理
     $.ajax({
-            url: '/api/member/memberinfo.php', //送信先
+            url: 'http://192.168.137.1:8080/api/member/memberinfo.php', //送信先
             type: 'GET', //送信方法
             datatype: 'json', //受け取りデータの種類
             data: {
@@ -72,7 +72,7 @@ $(function() {
             sendMemberInfo = memberInfo;
             myMembername = memberInfo['nickname']
             myMemberId = memberInfo['member_id']
-            //$(".user-icon img").attr("src", memberInfo["icon"])
+                //$(".user-icon img").attr("src", memberInfo["icon"])
         })
         .fail(function(response) {
             console.log('通信失敗');
@@ -80,7 +80,7 @@ $(function() {
         })
 
     $.ajax({
-            url: '/api/event/eventinfo.php', //送信先
+            url: 'http://192.168.137.1:8080/api/event/eventinfo.php', //送信先
             type: 'GET', //送信方法
             datatype: 'json', //受け取りデータの種類
             data: {
@@ -107,7 +107,7 @@ $(function() {
             console.log(eventdata)
 
             $.ajax({
-                    url: '/api/event/eventparticipant.php', //送信先
+                    url: 'http://192.168.137.1:8080/api/event/eventparticipant.php', //送信先
                     type: 'GET', //送信方法
                     datatype: 'json', //受け取りデータの種類
                     data: {
@@ -161,7 +161,7 @@ $(function() {
 
                     //ユーザ名の追加
                     $(".user-icon span").text(geteventInfo["organizer_nickname"])
-                    $(".user-icon img").attr("src",geteventInfo["organizer_icon"])
+                    $(".user-icon img").attr("src", geteventInfo["organizer_icon"])
 
                     helddate = new Date(geteventInfo['helddate']);
                     let helddateday = ("0" + (helddate.getDate())).slice(-2);
@@ -291,7 +291,7 @@ $(function() {
 // 登録処理
 function posteventdetail() {
     $.ajax({
-            url: '/api/event/eventinfo.php', //送信先
+            url: 'http://192.168.137.1:8080/api/event/eventinfo.php', //送信先
             type: 'POST', //送信方法
             datatype: 'json', //受け取りデータの種類
             data: sendeventInfo
@@ -307,7 +307,7 @@ function posteventdetail() {
 function Puteventdetail() {
     console.log("test");
     $.ajax({
-            url: '/api/event/eventinfo.php', //送信先
+            url: 'http://192.168.137.1:8080/api/event/eventinfo.php', //送信先
             type: 'PUT', //送信方法
             datatype: 'json', //受け取りデータの種類
             data: sendeventInfo
@@ -327,7 +327,7 @@ function Puteventdetail() {
 //イベント参加処理
 function eventparticipation() {
     $.ajax({
-            url: '/api/event/eventparticipant.php', //送信先
+            url: 'http://192.168.137.1:8080/api/event/eventparticipant.php', //送信先
             type: 'POST', //送信方法
             datatype: 'json', //受け取りデータの種類
             data: {
@@ -348,7 +348,7 @@ function eventparticipation() {
 //イベントキャンセル
 function eventcancel() {
     $.ajax({
-            url: '/api/event/eventparticipant.php', //送信先
+            url: 'http://192.168.137.1:8080/api/event/eventparticipant.php', //送信先
             type: 'PUT', //送信方法
             datatype: 'json', //受け取りデータの種類
             data: {
@@ -371,7 +371,7 @@ function eventcancel() {
 //イベント中止(修正必要)
 function eventcancellation() {
     $.ajax({
-            url: '/api/event/eventcancellation.php', //送信先
+            url: 'http://192.168.137.1:8080/api/event/eventcancellation.php', //送信先
             type: 'PUT', //送信方法
             datatype: 'json', //受け取りデータの種類
             data: {

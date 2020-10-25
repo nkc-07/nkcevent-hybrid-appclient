@@ -10,7 +10,7 @@ $(function() {
     $('#modal')[0].remove();
 
     $.ajax({ //ログインチェック
-            url: '/api/member/logincheck.php', //送信先
+            url: 'http://192.168.137.1:8080/api/member/logincheck.php', //送信先
             type: 'POST', //送信方法
             datatype: 'json', //受け取りデータの種類
             data: {
@@ -27,7 +27,7 @@ $(function() {
         })
 
     $.ajax({
-            url: '/api/member/memberinfo.php', //送信先
+            url: 'http://192.168.137.1:8080/api/member/memberinfo.php', //送信先
             type: 'GET', //送信方法
             datatype: 'json', //受け取りデータの種類
             data: {
@@ -77,7 +77,7 @@ $(function() {
                     $('#repass').val()
                 ) {
                     $.ajax({
-                        url: '/api/member/password.php', //送信先
+                        url: 'http://192.168.137.1:8080/api/member/password.php', //送信先
                         type: 'POST', //送信方法
                         data: {
                             password: $('#modal').find('input[name="old-pass"]').val(),
@@ -142,7 +142,7 @@ $(function() {
         console.log(sendMemberInfo)
         if (flg) {
             $.ajax({
-                    url: '/api/member/memberinfo.php', //送信先
+                    url: 'http://192.168.137.1:8080/api/member/memberinfo.php', //送信先
                     type: 'PUT', //送信方法
                     datatype: 'json', //受け取りデータの種類
                     data: sendMemberInfo
@@ -181,7 +181,7 @@ function getParticipationEvent() {
     let eventparticipationDom = $('.participation-event')
 
     $.ajax({
-            url: '/api/member/memberparticipation.php', //送信先
+            url: 'http://192.168.137.1:8080/api/member/memberparticipation.php', //送信先
             type: 'GET', //送信方法
             datatype: 'json', //受け取りデータの種類
             data: {
@@ -244,7 +244,7 @@ function getUserIconName() {
                 var data = { data: img.src.split(',')[1] }
                 if (userIconChangeFlag) {
                     $.ajax({
-                            url: '/api/event/image.php', //送信先
+                            url: 'http://192.168.137.1:8080/api/event/image.php', //送信先
                             type: 'POST', //送信方法
                             data: {
                                 name: file['name'],
@@ -278,7 +278,7 @@ function changePassword() {
         sendMemberInfo.hasOwnProperty('new_password')
     ) {
         $.ajax({
-            url: '/api/member/password.php', //送信先
+            url: 'http://192.168.137.1:8080/api/member/password.php', //送信先
             type: 'PUT', //送信方法
             data: {
                 old_password: sendMemberInfo['old_password'],

@@ -2,7 +2,6 @@ $(function() {
     // Ajax button click
     var reg = /^[a-z]{2}[0-9]*@mailg.denpa.ac.jp/
 
-    // <<<<<<< HEAD
     // 登録ボタンを押したとき
     $('#sign-up').on('click', function() {
         $(function() {
@@ -82,7 +81,7 @@ $(function() {
 
             if (flg == true) {
                 $.ajax({
-                    url: '/api/member/memberinfo.php',
+                    url: 'http://192.168.137.1:8080/api/member/memberinfo.php',
                     type: 'POST',
                     data: {
                         mailaddress: $('input[name=mail]').val(),

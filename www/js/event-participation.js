@@ -3,7 +3,7 @@ let eventparticipationDom;
 
 $(function() {
     $.ajax({
-            url: '/api/member/memberinfo.php', //送信先
+            url: 'http://192.168.137.1:8080/api/member/memberinfo.php', //送信先
             type: 'GET', //送信方法
             datatype: 'json', //受け取りデータの種類
             data: {
@@ -28,7 +28,7 @@ function geteventparticipation() {
     let sendData = searchUrlGenerater();
     sendData.member_id = geteventInfo['member_id'];
     $.ajax({
-            url: '/api/member/memberparticipation.php', //送信先
+            url: 'http://192.168.137.1:8080/api/member/memberparticipation.php', //送信先
             type: 'GET', //送信方法
             datatype: 'json', //受け取りデータの種類
             data: sendData

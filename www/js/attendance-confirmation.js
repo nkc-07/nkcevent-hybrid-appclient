@@ -52,7 +52,7 @@ $(document).on('click', '.user-status .dropdown-item', function(e) {
 });
 
 $.ajax({
-        url: '/api/member/logincheck.php', //送信先
+        url: 'http://192.168.137.1:8080/api/member/logincheck.php', //送信先
         type: 'POST', //送信方法
         datatype: 'json', //受け取りデータの種類
         data: {
@@ -66,7 +66,7 @@ $.ajax({
     })
 
 $.ajax({
-    url: '/api/event/eventinfo.php', //送信先
+    url: 'http://192.168.137.1:8080/api/event/eventinfo.php', //送信先
     type: 'GET', //送信方法
     datatype: 'json', //受け取りデータの種類
     data: {
@@ -78,7 +78,7 @@ $.ajax({
 })
 
 $.ajax({
-        url: '/api/member/memberinfo.php', //送信先
+        url: 'http://192.168.137.1:8080/api/member/memberinfo.php', //送信先
         type: 'GET', //送信方法
         datatype: 'json', //受け取りデータの種類
         data: {
@@ -100,7 +100,7 @@ $.ajax({
     })
 
 $.ajax({
-        url: '/api/event/eventattendance.php', //送信先
+        url: 'http://192.168.137.1:8080/api/event/eventattendance.php', //送信先
         type: 'GET', //送信方法
         datatype: 'json', //受け取りデータの種類
         data: {

@@ -20,7 +20,7 @@ if (localStorage.getItem('token') !== null) {
 
     $('.logout').on('click', function() {
         $.ajax({
-                url: '/api/member/login.php', //送信先
+                url: 'http://192.168.137.1:8080/api/member/login.php', //送信先
                 type: 'DELETE', //送信方法
                 datatype: 'json', //受け取りデータの種類
                 data: {
