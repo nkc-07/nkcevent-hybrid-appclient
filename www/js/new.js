@@ -179,7 +179,7 @@ $('.participation-event').click(function(e) {
                     createEventInfo['map'] = undefined;
                 }
                 if (typeof $('.send-event-img').prop('files')[0] !== "undefined") {
-                    createEventInfo['image'] = "http://192.168.137.1:8080/public/image/" + imageName['data'];
+                    createEventInfo['image'] = "/image/" + imageName['data'];
                 }
                 createEventInfo['deadline_date'] = $('.deadline-date').val();
                 createEventInfo['held_date'] = $('.held-date').val();

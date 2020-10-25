@@ -3,7 +3,7 @@
 }
 
 .serch-button {
-    background-image: url(http://192.168.137.1:8080/public/image/svg/search.svg);
+    background-image: url(/image/svg/search.svg);
     background-size: contain;
     height: 30px;
     width: 30px;
