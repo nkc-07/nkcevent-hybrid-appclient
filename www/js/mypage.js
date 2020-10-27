@@ -200,7 +200,8 @@ function getParticipationEvent() {
                     .find('a')
                     .attr(
                         'href',
-                        '/www/event-list/detail/index.html?event-id=' +
+                        cordova.file.applicationDirectory +
+                        'www/event-list/detail/index.html?event-id=' +
                         card.event_id
                     )
                 eventparticipationCloneDom.find('a').text(card.event_name)
