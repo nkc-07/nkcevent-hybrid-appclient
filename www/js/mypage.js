@@ -280,6 +280,7 @@ function getUserIconName () {
             })
         }
       }
+      //修正箇所
       $('#change-img').src = event.target.result
     }
     reader.readAsDataURL(file)
