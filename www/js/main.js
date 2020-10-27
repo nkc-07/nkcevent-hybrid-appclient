@@ -36,7 +36,7 @@ $(function() {
         getLogin();
     });
     $('.btn-mypage').on('touchend', function() {
-        window.location.href = "/www/mypage/";
+        window.location.href = "mypage/index.html";
     });
 });
 
@@ -61,7 +61,7 @@ function getLogin() {
         .done(function(response) {
             if (response['data']['success']) {
                 localStorage.setItem('token', response['data']['token']);
-                window.location.href = "/www/mypage/";
+                window.location.href = "mypage/index.html";
             } else {
                 $('.login-button').prop('disabled', false);
                 $('.loading-icon').hide();
