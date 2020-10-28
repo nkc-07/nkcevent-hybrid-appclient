@@ -1,4 +1,5 @@
 let getRequestParams = (new URL(document.location)).searchParams;
+
 /* ソートの値変更に使う変数 */
 let sortObject = {
     'recent_held_event': '直近開催イベント順',
@@ -40,3 +41,9 @@ $(document).on('click', '.dropdown-menu .dropdown-item', function() {
         location.href = location.href.replace(sortGetRequest, '?sort=' + $(this).val());
     }
 });
+
+// document.addEventListener("deviceready", function() {
+//     $('.serch-button').css('background-image',
+//         'url(' + cordova.file.applicationDirectory + 'www/image/svg/search.svg)'
+//     );
+// }, false);
