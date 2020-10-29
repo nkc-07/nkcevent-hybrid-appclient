@@ -40,7 +40,12 @@ function geteventparticipation() {
             if (eventdataInfo.length > 0) {
                 eventdataInfo.forEach(function(card) {
                     eventparticipationDom = eventparticipationDom.clone();
-                    eventparticipationDom.find(".card-link").attr("href", "/www/event-list/detail/index.html?event-id=" + card.event_id);
+                    eventparticipationDom.find(".card-link").attr(
+                        "href",
+                        cordova.file.applicationDirectory +
+                        "www/event-list/detail/index.html?event-id=" +
+                        card.event_id
+                    );
                     eventparticipationDom.find(".thumbnail img").attr("src", 'http://192.168.137.1:8080/' + card.image);
                     eventparticipationDom.find(".thumbnail p").text(card.held_date)
                     eventparticipationDom.find(".card-body .card-title").text(card.event_name);

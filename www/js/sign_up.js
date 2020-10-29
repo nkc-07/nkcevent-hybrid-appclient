@@ -100,7 +100,7 @@ $(function() {
                 .done(data => {
                         $('.result').html(data)
                         console.log(data)
-                        location.href = '/www/index.html'
+                        location.href = '../index.html'
                     })
                     // Ajaxリクエストが失敗した時発動
                     .fail(data => {
