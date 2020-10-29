@@ -25,7 +25,7 @@ $(function() {
         .fail(function(response) {
             //console.log('通信失敗');
             //console.log(response);
-            //location.href = '/public/html/event-list/';
+            //location.href = '/www/event-list/';
         })
     $('input').on('keydown', function(e) {
         if (e.which == 13) {
@@ -36,7 +36,7 @@ $(function() {
         getLogin();
     });
     $('.btn-mypage').on('touchend', function() {
-        window.location.href = "/public/html/mypage/";
+        window.location.href = "mypage/index.html";
     });
 });
 
@@ -61,7 +61,7 @@ function getLogin() {
         .done(function(response) {
             if (response['data']['success']) {
                 localStorage.setItem('token', response['data']['token']);
-                window.location.href = "/public/html/mypage/";
+                window.location.href = "mypage/index.html";
             } else {
                 $('.login-button').prop('disabled', false);
                 $('.loading-icon').hide();

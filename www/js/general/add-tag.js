@@ -6,7 +6,7 @@ let tagCardDom = $('.tag-card');
 $(function() {
     $.ajax({
             type: "GET",
-            url: "/api/other/tag.php",
+            url: "http://192.168.137.1:8080/api/other/tag.php",
             dataType: "json"
         })
         .done(function(response) {

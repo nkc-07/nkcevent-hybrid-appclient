@@ -5,15 +5,15 @@ let userList; // 出席するメンバーのリスト
 let eventAttendanceId; // 主催者のID
 let attendanceIcons = { // 出席状況のアイコンとテキスト
     0: {
-        img: '/public/image/svg/question.svg',
+        img: '/image/svg/question.svg',
         text: '未確認'
     },
     1: {
-        img: '/public/image/svg/cross.svg',
+        img: '/image/svg/cross.svg',
         text: '欠席'
     },
     2: {
-        img: '/public/image/svg/check.svg',
+        img: '/image/svg/check.svg',
         text: '出席確認済み'
     }
 };
@@ -52,7 +52,7 @@ $(document).on('click', '.user-status .dropdown-item', function(e) {
 });
 
 $.ajax({
-        url: '/api/member/logincheck.php', //送信先
+        url: 'http://192.168.137.1:8080/api/member/logincheck.php', //送信先
         type: 'POST', //送信方法
         datatype: 'json', //受け取りデータの種類
         data: {
@@ -60,13 +60,13 @@ $.ajax({
         }
     })
     .fail(function(response) {
-        location.href = '/public/html/event-list/detail/?event-id=' + getRequestParams.get('event-id');
+        location.href = '/www/event-list/detail/?event-id=' + getRequestParams.get('event-id');
         console.log('通信失敗');
         console.log(response);
     })
 
 $.ajax({
-    url: '/api/event/eventinfo.php', //送信先
+    url: 'http://192.168.137.1:8080/api/event/eventinfo.php', //送信先
     type: 'GET', //送信方法
     datatype: 'json', //受け取りデータの種類
     data: {
@@ -78,7 +78,7 @@ $.ajax({
 })
 
 $.ajax({
-        url: '/api/member/memberinfo.php', //送信先
+        url: 'http://192.168.137.1:8080/api/member/memberinfo.php', //送信先
         type: 'GET', //送信方法
         datatype: 'json', //受け取りデータの種類
         data: {
@@ -88,9 +88,9 @@ $.ajax({
     .done(function(response) {
         console.log(response)
         if (!response['data']['info']['member_id'] == eventAttendanceId) {
-            location.href = '/public/html/event-list/detail/?event-id=' + getRequestParams.get('event-id');
+            location.href = '/www/event-list/detail/?event-id=' + getRequestParams.get('event-id');
         } else {
-            $('.organizer-box img').attr('src', response['data']['info']['icon']);
+            $('.organizer-box img').attr('src', 'http://192.168.137.1:8080' + response['data']['info']['icon']);
             $('.organizer-box p').text(response['data']['info']['nickname']);
         }
     })
@@ -100,7 +100,7 @@ $.ajax({
     })
 
 $.ajax({
-        url: '/api/event/eventattendance.php', //送信先
+        url: 'http://192.168.137.1:8080/api/event/eventattendance.php', //送信先
         type: 'GET', //送信方法
         datatype: 'json', //受け取りデータの種類
         data: {
@@ -123,7 +123,7 @@ $.ajax({
     })
 
 $(function() {
-    $('.detail-back-link').attr('href', '/public/html/event-list/detail/index.html?event-id=' + getRequestParams.get('event-id'));
+    $('.detail-back-link').attr('href', '/www/event-list/detail/index.html?event-id=' + getRequestParams.get('event-id'));
 })
 
 function showAttendanceList(changeDisplay) {
@@ -133,7 +133,7 @@ function showAttendanceList(changeDisplay) {
         if (items.is_attendance == changeDisplay || changeDisplay === "all") {
             tempAttendanceUserDom = attendanceUserDom.clone();
             tempAttendanceUserDom.addClass('member-id-' + items.member_id);
-            tempAttendanceUserDom.find('.user-icon img').attr('src', items.icon);
+            tempAttendanceUserDom.find('.user-icon img').attr('src', 'http://192.168.137.1:8080' + items.icon);
             tempAttendanceUserDom.find('.svg').attr('src', attendanceIcons[items.is_attendance].img);
             tempAttendanceUserDom.find('.dropdown-toggle').text(attendanceIcons[items.is_attendance].text);
             tempAttendanceUserDom.find('.user-icon p').text(items.nickname);

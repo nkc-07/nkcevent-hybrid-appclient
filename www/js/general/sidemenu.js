@@ -20,7 +20,7 @@ if (localStorage.getItem('token') !== null) {
 
     $('.logout').on('click', function() {
         $.ajax({
-                url: '/api/member/login.php', //送信先
+                url: 'http://192.168.137.1:8080/api/member/login.php', //送信先
                 type: 'DELETE', //送信方法
                 datatype: 'json', //受け取りデータの種類
                 data: {
@@ -31,7 +31,7 @@ if (localStorage.getItem('token') !== null) {
                 console.log(response);
                 localStorage.removeItem('token');
 
-                location.href = '/public/html/';
+                location.href = cordova.file.applicationDirectory + 'www/index.html';
             })
             .fail(function(response) {
                 console.log('通信失敗');

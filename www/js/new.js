@@ -1,6 +1,6 @@
 $(function() {
     $.ajax({ //ログインチェック
-            url: '/api/member/logincheck.php', //送信先
+            url: 'http://192.168.137.1:8080/api/member/logincheck.php', //送信先
             type: 'POST', //送信方法
             datatype: 'json', //受け取りデータの種類
             data: {
@@ -8,22 +8,22 @@ $(function() {
             }
         })
         .done(function(response) {
-            if (!response.data.login) { location.href = '/public/html/'; }
+            if (!response.data.login) { location.href = '/www/'; }
         })
         .fail(function(response) {
             console.log('通信失敗');
             console.log(response);
-            location.href = '/public/html/event-list/';
+            location.href = '/www/event-list/';
         })
 
-        $('input[type="number"].member_limit').keyup(function(e) {
-            if(
-                Number($('.member_limit').val()) < 0  ||
-                e.key == "-"
-            ) {
-                $('.member_limit').val("");
-            }
-        });
+    $('input[type="number"].member_limit').keyup(function(e) {
+        if (
+            Number($('.member_limit').val()) < 0 ||
+            e.key == "-"
+        ) {
+            $('.member_limit').val("");
+        }
+    });
 });
 
 var simplemde = new SimpleMDE({
@@ -60,7 +60,7 @@ let createEventInfo = {
 }
 
 $.ajax({
-    url: '/api/member/memberinfo.php', //送信先
+    url: 'http://192.168.137.1:8080/api/member/memberinfo.php', //送信先
     type: 'GET', //送信方法
     datatype: 'json', //受け取りデータの種類
     data: {
@@ -69,7 +69,7 @@ $.ajax({
 }).done(function(response) {
     let memberInfo = response['data']['info'];
 
-    $('.user-img').attr('src', memberInfo['icon']);
+    $('.user-img').attr('src', 'http://192.168.137.1:8080' + memberInfo['icon']);
     $('.nickname').text(memberInfo['nickname']);
 
     createEventInfo['token_id'] = localStorage.getItem('token');
@@ -112,7 +112,7 @@ $('.held-date').attr('min', nowTime + 'T00:00');
 $('.deadline-date').attr('min', nowTime);
 $('.held-date').change(function(e) {
     $('.deadline-date').attr('max', $(this).val().split('T')[0]);
-    if($('.deadline-date').val() != "" && $('.deadline-date').val() > $('.held-date').val()){
+    if ($('.deadline-date').val() != "" && $('.deadline-date').val() > $('.held-date').val()) {
         $('.deadline-date').val("");
     }
 
@@ -123,7 +123,7 @@ $('.held-date').change(function(e) {
     $('.held-time').text(date[2].split('T')[1]);
 });
 $('.deadline-date').change(function(e) {
-    if($('.held-date').val() != "" && $('.deadline-date').val() > $('.held-date').val()){
+    if ($('.held-date').val() != "" && $('.deadline-date').val() > $('.held-date').val()) {
         $('.deadline-date').val("");
     }
 });
@@ -157,7 +157,7 @@ $('.participation-event').click(function(e) {
         img.onload = function() {
             var data = { data: img.src.split(',')[1] };
             $.ajax({
-                url: '/api/event/image.php', //送信先
+                url: 'http://192.168.137.1:8080/api/event/image.php', //送信先
                 type: 'POST', //送信方法
                 data: {
                     "name": file["name"],
@@ -183,22 +183,22 @@ $('.participation-event').click(function(e) {
                 }
                 createEventInfo['deadline_date'] = $('.deadline-date').val();
                 createEventInfo['held_date'] = $('.held-date').val();
-                if(createEventInfo['deadline_date'] >= createEventInfo['held_date']){
+                if (createEventInfo['deadline_date'] >= createEventInfo['held_date']) {
                     alert("締切日");
                     return;
                 }
-                if($('.member_limit').val() >= 2 ) {
+                if ($('.member_limit').val() >= 2) {
                     createEventInfo['member_limit'] = $('.member_limit').val();
                 }
 
                 $.ajax({
-                    url: '/api/event/eventinfo.php', //送信先
+                    url: 'http://192.168.137.1:8080/api/event/eventinfo.php', //送信先
                     type: 'POST', //送信方法
                     datatype: 'json', //受け取りデータの種類
                     data: createEventInfo
                 }).done(function(e) {
                     sendTag(e['data']);
-                    location.href = '/public/html/event-list/'
+                    location.href = '/www/event-list/'
                 }).fail(function(e) {
                     console.log('通信失敗');
                     console.log(e);

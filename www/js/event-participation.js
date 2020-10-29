@@ -3,7 +3,7 @@ let eventparticipationDom;
 
 $(function() {
     $.ajax({
-            url: '/api/member/memberinfo.php', //送信先
+            url: 'http://192.168.137.1:8080/api/member/memberinfo.php', //送信先
             type: 'GET', //送信方法
             datatype: 'json', //受け取りデータの種類
             data: {
@@ -28,7 +28,7 @@ function geteventparticipation() {
     let sendData = searchUrlGenerater();
     sendData.member_id = geteventInfo['member_id'];
     $.ajax({
-            url: '/api/member/memberparticipation.php', //送信先
+            url: 'http://192.168.137.1:8080/api/member/memberparticipation.php', //送信先
             type: 'GET', //送信方法
             datatype: 'json', //受け取りデータの種類
             data: sendData
@@ -40,13 +40,18 @@ function geteventparticipation() {
             if (eventdataInfo.length > 0) {
                 eventdataInfo.forEach(function(card) {
                     eventparticipationDom = eventparticipationDom.clone();
-                    eventparticipationDom.find(".card-link").attr("href", "/public/html/event-list/detail/index.html?event-id=" + card.event_id);
-                    eventparticipationDom.find(".thumbnail img").attr("src", card.image);
+                    eventparticipationDom.find(".card-link").attr(
+                        "href",
+                        cordova.file.applicationDirectory +
+                        "www/event-list/detail/index.html?event-id=" +
+                        card.event_id
+                    );
+                    eventparticipationDom.find(".thumbnail img").attr("src", 'http://192.168.137.1:8080/' + card.image);
                     eventparticipationDom.find(".thumbnail p").text(card.held_date)
                     eventparticipationDom.find(".card-body .card-title").text(card.event_name);
                     eventparticipationDom.find(".card-body p").text(card.map);
                     eventparticipationDom.find(".user-icon p").text(card.organizer);
-                    eventparticipationDom.find(".user-icon img").attr("src", card.icon);
+                    eventparticipationDom.find(".user-icon img").attr("src", 'http://192.168.137.1:8080/' + card.icon);
                     eventparticipationDom.show();
                     $(".card-columns").append(eventparticipationDom);
                 });
