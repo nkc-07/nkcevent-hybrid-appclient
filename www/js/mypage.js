@@ -6,10 +6,11 @@ var reg = /^[a-z]{2}[0-9]*@mailg.denpa.ac.jp/
 
 $(function() {
     // sweetalertの画面要素
-    let modalDom = $('#modal').clone();
-    $('#modal')[0].remove();
+    let modalDom = $('#modal').clone()
+    $('#modal')[0].remove()
 
-    $.ajax({ //ログインチェック
+    $.ajax({
+            //ログインチェック
             url: 'http://192.168.137.1:8080/api/member/logincheck.php', //送信先
             type: 'POST', //送信方法
             datatype: 'json', //受け取りデータの種類
@@ -18,12 +19,14 @@ $(function() {
             }
         })
         .done(function(response) {
-            if (!response.data.login) { location.href = '/www/'; }
+            if (!response.data.login) {
+                location.href = '/www/'
+            }
         })
         .fail(function(response) {
-            console.log('通信失敗');
-            console.log(response);
-            location.href = '/www/event-list/';
+            console.log('通信失敗')
+            console.log(response)
+            location.href = '/www/event-list/'
         })
 
     $.ajax({
@@ -44,7 +47,10 @@ $(function() {
             console.log(sendMemberInfo)
 
             let birtday = memberInfo['birthday'].split('-')
-            $('.user-icon').attr('src', 'http://192.168.137.1:8080' + memberInfo['icon'])
+            $('.user-icon').attr(
+                'src',
+                'http://192.168.137.1:8080/' + memberInfo['icon']
+            )
             $('.nickname').val(memberInfo['nickname'])
             $('.mailaddress').val(memberInfo['mailaddress'])
             $('.target-year').text(birtday[0])
@@ -77,34 +83,42 @@ $(function() {
                     $('#repass').val()
                 ) {
                     $.ajax({
-                        url: 'http://192.168.137.1:8080/api/member/password.php', //送信先
-                        type: 'POST', //送信方法
-                        data: {
-                            password: $('#modal').find('input[name="old-pass"]').val(),
-                            token: localStorage.getItem('token')
-                        },
-                        datatype: 'json'
-                    }).done(function(response) {
-                        sendMemberInfo['new_password'] = $('#modal').find('input[name="pass"]').val();
-                        sendMemberInfo['old_password'] = $('#modal').find('input[name="old-pass"]').val();
-                        $('.check-pass').show();
-                        Swal.fire({
-                            title: 'パスワードの変更確認が出来ました',
-                            icon: 'success'
+                            url: 'http://192.168.137.1:8080/api/member/password.php', //送信先
+                            type: 'POST', //送信方法
+                            data: {
+                                password: $('#modal')
+                                    .find('input[name="old-pass"]')
+                                    .val(),
+                                token: localStorage.getItem('token')
+                            },
+                            datatype: 'json'
                         })
-                    }).fail(function(response) {
-                        Swal.fire({
-                            title: 'パスワードの変更確認が出来ませんでした',
-                            icon: 'error'
+                        .done(function(response) {
+                            sendMemberInfo['new_password'] = $('#modal')
+                                .find('input[name="pass"]')
+                                .val()
+                            sendMemberInfo['old_password'] = $('#modal')
+                                .find('input[name="old-pass"]')
+                                .val()
+                            $('.check-pass').show()
+                            Swal.fire({
+                                title: 'パスワードの変更確認が出来ました',
+                                icon: 'success'
+                            })
                         })
-                    })
+                        .fail(function(response) {
+                            Swal.fire({
+                                title: 'パスワードの変更確認が出来ませんでした',
+                                icon: 'error'
+                            })
+                        })
                 } else {
                     Swal.fire({
                         title: 'パスワードが一致しません。',
                         icon: 'error'
                     })
                 }
-            },
+            }
         })
     })
 
@@ -149,12 +163,11 @@ $(function() {
                 })
                 .done(function(response) {
                     Swal.fire({
-                            icon: 'success',
-                            title: 'プロフィールの変更に成功しました。'
-                        })
-                        .then(function() {
-                            location.href = "";
-                        });
+                        icon: 'success',
+                        title: 'プロフィールの変更に成功しました。'
+                    }).then(function() {
+                        location.href = ''
+                    })
                 })
                 .fail(function(response) {
                     console.log(response)
@@ -200,9 +213,7 @@ function getParticipationEvent() {
                     .find('a')
                     .attr(
                         'href',
-                        cordova.file.applicationDirectory +
-                        'www/event-list/detail/index.html?event-id=' +
-                        card.event_id
+                        '/www/event-list/detail/index.html?event-id=' + card.event_id
                     )
                 eventparticipationCloneDom.find('a').text(card.event_name)
                 eventparticipationCloneDom.show()
@@ -242,32 +253,35 @@ function getUserIconName() {
 
         reader.onload = function(event) {
             img.onload = function() {
-                var data = { data: img.src.split(',')[1] }
-                if (userIconChangeFlag) {
-                    $.ajax({
-                            url: 'http://192.168.137.1:8080/api/event/image.php', //送信先
-                            type: 'POST', //送信方法
-                            data: {
-                                name: file['name'],
-                                image: data
-                            }
-                        })
-                        .done(function(response) {
-                            console.log('success')
-                            console.log(response)
+                    var data = { data: img.src.split(',')[1] }
+                    if (userIconChangeFlag) {
+                        $.ajax({
+                                url: 'http://192.168.137.1:8080/api/event/image.php', //送信先
+                                type: 'POST', //送信方法
+                                data: {
+                                    name: file['name'],
+                                    image: data
+                                }
+                            })
+                            .done(function(response) {
+                                console.log('success')
+                                console.log(response)
 
-                            let imageName = JSON.parse(response)
-                            resolve('http://192.168.137.1:8080/public/image/' + imageName['data'])
-                        })
-                        .fail(function(response) {
-                            console.log('通信失敗')
-                            console.log(response)
+                                let imageName = JSON.parse(response)
+                                resolve(
+                                    'http://192.168.137.1:8080/public/image/' + imageName['data']
+                                )
+                            })
+                            .fail(function(response) {
+                                console.log('通信失敗')
+                                console.log(response)
 
-                            resolve(sendMemberInfo['icon'])
-                        })
+                                resolve(sendMemberInfo['icon'])
+                            })
+                    }
                 }
-            }
-            img.src = event.target.result
+                //修正箇所
+            $('#change-img').src = event.target.result
         }
         reader.readAsDataURL(file)
     })
@@ -279,20 +293,21 @@ function changePassword() {
         sendMemberInfo.hasOwnProperty('new_password')
     ) {
         $.ajax({
-            url: 'http://192.168.137.1:8080/api/member/password.php', //送信先
-            type: 'PUT', //送信方法
-            data: {
-                old_password: sendMemberInfo['old_password'],
-                new_password: sendMemberInfo['new_password'],
-                token: localStorage.getItem('token')
-            },
-            datatype: 'json'
-        }).done(function(response) {
-            console.log(Response);
-        }).fail(function(response) {
-            console.log('通信失敗')
-            console.log(response)
-        })
+                url: 'http://192.168.137.1:8080/api/member/password.php', //送信先
+                type: 'PUT', //送信方法
+                data: {
+                    old_password: sendMemberInfo['old_password'],
+                    new_password: sendMemberInfo['new_password'],
+                    token: localStorage.getItem('token')
+                },
+                datatype: 'json'
+            })
+            .done(function(response) {
+                console.log(Response)
+            })
+            .fail(function(response) {
+                console.log('通信失敗')
+                console.log(response)
+            })
     }
-
 }
