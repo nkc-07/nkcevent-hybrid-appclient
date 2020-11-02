@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../../../vender/bootstrap-4.4.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/index.css">
+    <link rel="stylesheet" href="../../../../css/general/sidemenu.css">
+    <link rel="stylesheet" href="../../../../vender/sweetalert2/sweetalert2.min.css" />
+    <link rel="stylesheet" href="../../../../css/attendance-confirmation.css" />
+
+    <script src="../../../../vender/jquery-3.5.1.min/index.js"></script>
+    <script src="../../../../vender/bootstrap-4.4.1-dist/js/popper.js"></script>
+    <script src="../../../../vender/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+    <script src="../../../../vender/sidemenu/iscroll.min/index.js"></script>
+    <script src="../../../../vender/sidemenu/drawer.3.2.2.min/index.js"></script>
+    <script src="../../../../vender/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="../../../../vender/jquery.qrcode/jquery.qrcode.min.js"></script>
+
+    <title>出席確認</title>
+</head>
+
+<body class="drawer drawer--right">
+    <header role="banner">
+        <nav class="navbar navbar-light bg-light navbar-dark bg-dark">
+            <a href="../../../../index.html" class="h1 navbar-brand text-white">出席確認</a>
+            <button type="button" class="text-white drawer-toggle drawer-hamburger">
+              <span class="sr-only">toggle navigation</span>
+            <span class="drawer-hamburger-icon"></span>
+            </button>
+            <nav class="drawer-nav navbar-dark bg-dark" role="navigation">
+                <ul class="drawer-menu">
+                    <li><a class="drawer-menu-item text-white" href="../../../../index.html">トップページ</a></li>
+                    <li><a class="drawer-menu-item text-white" href="../../index.html">イベント一覧</a></li>  
+                    <li><span class="border-top"></span></li>
+
+                    <div class="login" style="display: none;">
+                        <li><a class="drawer-menu-item text-white" href="../../../../html/mypage/">マイページ</a></li>
+                        <li><a class="drawer-menu-item text-white" href="../../../../html/event-list/new/index.html">イベント作成</a></li>
+                        <li><a class="drawer-menu-item text-white" href="../../../../mypage/event-participation/index.html">参加イベント一覧</a></li>
+                        <li><a class="drawer-menu-item text-white logout" href="#">ログアウト</a></li>
+                    </div>
+
+                    <div class="no-login">
+                        <li><a class="drawer-menu-item text-white" href="/www/html/">ログイン</a></li>
+                    </div>
+                </ul>
+            </nav>
+        </nav>
+    </header>
+
+    <main>
+        <div class="card card-box">
+            <h1 class="event-title"></h1>
+            <div>
+                <div class="card organizer-box">
+                    <h2>主催者</h2>
+                    <div class="user-icon blockquote text-left">
+                        <img src="" alt="user image">
+                        <p>user name</p>
+                    </div>
+                </div>
+
+                <div class="card qrcode-box">
+                    <div id="qrcode-table"></div>
+                    <p>QRコードを専用アプリから読み取ってください</p>
+                </div>
+            </div>
+
+            <div class="card attendance-box">
+                <h2>参加者一覧</h2>
+                <div>
+                    <div class="dropdown">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">出席状況でフィルタリング</button>
+                        <ul class="dropdown-menu filtering">
+                            <li><button class="dropdown-item" value="all">すべて表示</button></li>
+                            <li><button class="dropdown-item" value="2">出席確認済み</button></li>
+                            <li><button class="dropdown-item" value="1">欠席</button></li>
+                            <li><button class="dropdown-item" value="0">未確認</button></li>
+                        </ul>
+                    </div>
+                    <div class="attendance-table">
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ユーザー名</th>
+                                    <th scope="col">出席状況</th>
+                                    <th scope="col">手動で切り替える</th>
+                                </tr>
+                            </thead>
+                            <tbody class="attendance-list">
+                                <tr class="attendance-user" style="display: none;">
+                                    <td>
+                                        <div class="user-icon blockquote text-left">
+                                            <img src="#" alt="user image">
+                                            <p></p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        </svg>
+                                        <img src="" class="svg">
+                                    </td>
+                                    <td>
+                                        <div class="dropdown user-status">
+                                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">出席確認済み</button>
+                                            <ul class="dropdown-menu">
+                                                <li><button class="dropdown-item" value="2">出席確認済み</button></li>
+                                                <li><button class="dropdown-item" value="1">欠席</button></li>
+                                                <li><button class="dropdown-item" value="0">未確認</button></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a href="#" class="btn btn-primary detail-back-link">イベント詳細画面に戻る</a>
+            </div>
+        </div>
+
+        <script src="../../../../js/attendance-confirmation.js"></script>
+        <script src="../../../../js/general/sidemenu.js "></script>
+    </main>
+</body>
+
+</html>
