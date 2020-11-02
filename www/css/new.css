@@ -14,7 +14,7 @@ input {
 }
 
 .day-box {
-    background-image: url(/image/svg/day_icon.svg);
+    background-image: url(../../image/svg/day_icon.svg);
     background-repeat: no-repeat;
     width: 100px;
     height: 100px;
@@ -142,3 +142,31 @@ input {
 .clear-float {
     display: inline-block;
 }
+
+.no-text-err-text{
+        font-size: initial;
+        font-size: 15pt;
+        color: red;
+        display: none;
+        text-align: left
+}
+
+.no-held-err-text,
+.err2-member-limit-text,
+.no-err-address-text,
+.err-member-limit-text,
+.err-deadline-date-text,
+.no-postal-err-text{
+    font-size: initial;
+        font-size: 15pt;
+        color: red;
+        display: none;
+}
+
+.no-err-img-text{
+        font-size: initial;
+        font-size: 25pt;
+        color: red;
+        display: none;
+}
+
