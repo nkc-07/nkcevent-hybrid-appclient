@@ -1,4 +1,4 @@
-input {
+    input {
     margin: 0 0 15px 0;
 }
 
@@ -58,8 +58,10 @@ input {
 }
 
 .event-img {
-    width: 800px;
+    max-width: 500px;
+    width: 95%;
     height: auto;
+
     background-color: lavender;
     object-fit: cover;
     max-height: 800px;
@@ -145,7 +147,7 @@ input {
 
 .no-text-err-text{
         font-size: initial;
-        font-size: 15pt;
+        font-size: 15px;
         color: red;
         display: none;
         text-align: left
@@ -158,15 +160,27 @@ input {
 .err-deadline-date-text,
 .no-postal-err-text{
     font-size: initial;
-        font-size: 15pt;
+        font-size: 15px;
         color: red;
         display: none;
 }
 
 .no-err-img-text{
         font-size: initial;
-        font-size: 25pt;
+        font-size: 25px;
         color: red;
         display: none;
 }
+
+
+
+.form-control{
+    width: 100% ;
+}
+
+.event-comment{
+    clear: transparent;
+}
+
+
 
