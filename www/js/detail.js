@@ -152,7 +152,7 @@ $(function() {
                     let userTag = $('.tag-card');
                     eventTags.forEach(eventTag => {
                         let targetTag = userTag.clone()
-                        targetTag.find('a').attr('href', '/www/event-list/index.html?tag_id=' + eventTag.event_tag)
+                        targetTag.find('a').attr('href', '../../event-list/index.html?tag_id=' + eventTag.event_tag)
                         targetTag.find('span').text(eventTag.tag_name);
                         $(".clear-float").append(
                             targetTag.show()
@@ -195,7 +195,7 @@ $(function() {
                         case 3:
                             /* 主催者イベント処理 */
                             $('.attendance').show();
-                            $('.attendance').attr('href', `/www/event-list/detail/attendance-confirmation/index.html?event-id=${getRequestParams.get('event-id')}`);
+                            $('.attendance').attr('href', `../../event-list/detail/attendance-confirmation/index.html?event-id=${getRequestParams.get('event-id')}`);
                             $(".participat").hide();
                             $(".cancellation").show();
                             $(".cancellation").click(function() {
