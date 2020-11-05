@@ -3,11 +3,11 @@
     height: auto;
 }
 
-.detail-box {
+/*.detail-box {
     margin: 20px;
     padding: 20px;
     border: 1px solid rgba(0, 0, 0, .125);
-}
+}*/
 
 .day-box {
     background-image: url(../image/svg/day_icon.svg);
@@ -30,15 +30,18 @@
 .event-img {
     max-width: 900px;
     height: auto;
-    width: 75%;
+    width: 95%;
 }
 
 .create-day {
     float: right;
+    margin-right: 10px;
 }
 
 .text-right {
     text-align: right;
+    margin-bottom: 10px;
+    margin-right: 10px;
 }
 
 .user-icon {
@@ -83,19 +86,23 @@
     display: inline;
 }
 
-.event-info div {
+/*.event-info div {
     width: 50%;
     float: left;
-}
+}*/
 
 .event-info table td {
     vertical-align: middle;
 }
 
-.event-info .googlemap-addres {
+.event-info .googlemap-frame{
+    width: auto; 
+    height: 300px;
+}
+/*.event-info .googlemap-addres {
     float: left;
     display: contents;
-}
+}*/
 
 .member-limit {
     text-align: center;
