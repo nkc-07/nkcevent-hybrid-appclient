@@ -15,4 +15,4 @@ npm-debug.log
 # vscode log
 .vscode
 jsconfig.json
-typings/cordova-typings.d.ts
+typings/
