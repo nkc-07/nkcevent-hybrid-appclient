@@ -20,10 +20,30 @@ $('#qrcode').on('click', function() {
             confirmButtonColor: '#ff0000'
         }).then((result) => {
             if (result.value) {
-                Swal.fire({
-                    icon: 'success',
-                    title: '欠席登録を行いました',
-                })
+                let conn = new WebSocket('ws://192.168.137.1:81?mode=attendance&participation_event=' + getRequestParams.get('event-id'));
+                let memberData;
+                conn.onopen = function(e) {
+
+                    let sendJsonDate = {
+                        event_id: getRequestParams.get('event-id'),
+                        token_id: localStorage.getItem('token'),
+                        status: 1
+                    };
+
+                    conn.send(JSON.stringify(sendJsonDate));
+
+                    console.log(JSON.stringify(sendJsonDate));
+
+                    conn.onmessage = function(e) {
+                        memberData = JSON.parse(e.data)
+                        console.log(e);
+
+                        Swal.fire({
+                            icon: 'success',
+                            title: '欠席登録を行いました',
+                        })
+                    };
+                };
             } else {
                 swal.close()
             }
@@ -43,8 +63,8 @@ var done = function(err, status) {
                 text: '読み込めませんでした...',
             });
         } else {
-            var conn = new WebSocket('ws://192.168.137.1:81?mode=attendance&participation_event=' + getRequestParams.get('event-id'));
-            var memberData;
+            let conn = new WebSocket('ws://192.168.137.1:81?mode=attendance&participation_event=' + getRequestParams.get('event-id'));
+            let memberData;
             conn.onopen = function(e) {
 
                 let sendJsonDate = {
@@ -61,6 +81,11 @@ var done = function(err, status) {
                 conn.onmessage = function(e) {
                     memberData = JSON.parse(e.data)
                     console.log(e);
+
+                    Swal.fire({
+                        icon: 'success',
+                        title: '出席登録を行いました',
+                    })
                 };
             };
 
