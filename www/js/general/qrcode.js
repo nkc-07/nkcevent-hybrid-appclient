@@ -1,5 +1,37 @@
 $('#qrcode').on('click', function() {
-    QRScanner.prepare(onDone);
+    Swal.fire({
+        title: '出席登録確認',
+        html: $('#qrcode-modal')[0].innerHTML,
+        showConfirmButton: false,
+    })
+    $('#qrcode-btn .btn-success').click(function() {
+        QRScanner.prepare(onDone);
+        swal.close()
+    });
+    $('#qrcode-btn .btn-danger').click(function() {
+        Swal.fire({
+            title: '本当に欠席登録を行いますか？',
+            icon: 'warning',
+            text: '一度登録すると主催者に連絡しない限り取り消すことができません。',
+            showCancelButton: true,
+            confirmButtonText: "はい",
+            cancelButtonText: 'いいえ',
+            cancelButtonColor: '#4169E1',
+            confirmButtonColor: '#ff0000'
+        }).then((result) => {
+            if (result.value) {
+                Swal.fire({
+                    icon: 'success',
+                    title: '欠席登録を行いました',
+                })
+            } else {
+                swal.close()
+            }
+        })
+    })
+    $('#qrcode-btn .btn-secondary').click(function() {
+        swal.close()
+    })
 });
 
 var done = function(err, status) {
