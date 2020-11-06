@@ -43,7 +43,27 @@ var done = function(err, status) {
                 text: '読み込めませんでした...',
             });
         } else {
-            alert(text);
+            var conn = new WebSocket('ws://192.168.137.1:81?mode=attendance&participation_event=' + getRequestParams.get('event-id'));
+            var memberData;
+            conn.onopen = function(e) {
+
+                let sendJsonDate = {
+                    event_id: getRequestParams.get('event-id'),
+                    token_id: localStorage.getItem('token'),
+                    qrcode_value: text,
+                    status: 2
+                };
+
+                conn.send(JSON.stringify(sendJsonDate));
+
+                console.log(JSON.stringify(sendJsonDate));
+
+                conn.onmessage = function(e) {
+                    memberData = JSON.parse(e.data)
+                    console.log(e);
+                };
+            };
+
             QRScanner.destroy();
             $('main').show();
             $('body').css('background-color', ''); // qrcode実行時に追加されるものを初期状態に戻す
