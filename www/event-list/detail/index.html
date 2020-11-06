@@ -134,9 +134,24 @@
                 <a href="#" class="btn participation-event under-button attendance" style="display: none;">出席確認</a>
                 <button type="submit" class="btn participation-event under-button cancellation">中止</button>
                 <button type="submit" class="btn participation-event under-button cancel">キャンセル</button>
+                <button id="qrcode" class="btn participation-event under-button qrscan-active">qrcode</button>
                 <button type="submit" class="btn participation-event under-button participat">イベントに参加</button>
             </div>
+
+            <div id="qrcode-modal" style="display: none;">
+                <div id="qrcode-btn">
+                    <p>出席登録を行う際は主催者が所持しているQRコードを読み取ってください</p>
+                    <button type="submit" class="btn participation-event under-button btn-success">参加登録</button>
+                    <button type="submit" class="btn participation-event under-button btn-danger">欠席登録</button>
+                    <button type="submit" class="btn participation-event under-button btn-secondary">キャンセル</button>
+                </div>
+            </div>
         </div>
+
+        <script type="text/javascript" src="../../cordova.js"></script>
+        <script type="text/javascript" src="../../js/index.js"></script>
+
+        <script src="../../js/general/qrcode.js"></script>
         <script src="../../js/general/sidemenu.js"></script>
         <script src="../../js/detail.js"></script>
     </main>
