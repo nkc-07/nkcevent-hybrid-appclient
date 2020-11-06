@@ -1,5 +1,6 @@
 p {
   font-size: 20pt;
+  margin: 1% 1% 1% 1%;
 }
 
 .maininfo {
@@ -7,9 +8,10 @@ p {
   margin: 30px 280px 30px 280px;
   padding: 20px;
   border: 1px solid rgba(0, 0, 0, 0.125); */
-  position: absolute; /* 位置指定 */
-  margin-left: 38%;
-  margin-right: auto;
+  position: left; /* 位置指定 */
+  /* margin-left: 38%; */
+  /* margin-right: auto; */
+  margin: 3% 3% 3% 3%;
 }
 
 .create-btn {
@@ -19,6 +21,8 @@ p {
   background-color: #007bff;
   color: #ffffff;
   border: 0px;
+  margin: 3% 3% 3% 3%;
+  width: 95%;
 }
 
 .radiosize {
@@ -55,6 +59,7 @@ input[type="password"] {
 .repass-err-text {
   font-size: initial;
   font-size: 15pt;
+  font-size: 80%;
   color: red;
   display: none;
 }
