@@ -213,7 +213,7 @@ function getParticipationEvent () {
           .find('a')
           .attr(
             'href',
-            '/www/event-list/detail/index.html?event-id=' + card.event_id
+            '../event-list/detail/index.html?event-id=' + card.event_id
           )
         eventparticipationCloneDom.find('a').text(card.event_name)
         eventparticipationCloneDom.show()
