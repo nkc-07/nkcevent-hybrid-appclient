@@ -10,6 +10,8 @@
 	background-color:#FFF;
 	position: absolute;
 	z-index: 2147483647;
+	top: 39px;
+	right:60px;
 }
 
 [data-mysuggest] ul:after{
@@ -20,10 +22,11 @@
 
 [data-mysuggest] ul li{
 	display: block;
+	background-color: #FFF;
 	position: relative;
 	margin: 0 0 -1px 0;
 	padding: 10px 20px 10px 15px;
-	border: 1px solid #DDD;
+	border: 1px solid #aaa;
 	cursor: pointer;
 }
 
@@ -54,7 +57,7 @@
 }
 
 [data-mysuggest] ul li.totch{
-	background-color: #DDD;
+	background-color: #fff;
 }
 
 @media screen and (max-width: 768px){

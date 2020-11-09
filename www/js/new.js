@@ -150,6 +150,9 @@ $('.participation-event').click(function(e) {
     var file = $('.send-event-img').prop('files')[0];
     console.log(file);
 
+    
+    var errFlag = 0;
+
     if (!file) {
         console.log("画像なし");
         $('.no-err-img-text').css('display', 'block');
@@ -208,7 +211,8 @@ $('.participation-event').click(function(e) {
         $(".err-deadline-date-text").css('display', 'none');
         $(".deadline-date").css('border-color', 'silver');
     }
-
+    
+    
     //番地未入力処理
     if ($('.street-number').val() === "") {
         $(".no-err-address-text").css('display', 'block');
@@ -218,15 +222,7 @@ $('.participation-event').click(function(e) {
         $(".no-err-address-text").css('display', 'none');
         $(".street-number").css('border-color', 'silver');
     }
-
-    //開催日未設定処理
-    if ($('.held-time').text() === "??:??") {
-        $(".no-held-err-text").css('display', 'block');
-        errFlag = 1
-    } else {
-        $(".no-held-err-text").css('display', 'none');
-    }
-
+    
     //開催日未設定処理
     if ($('.held-time').text() === "??:??") {
         $(".no-held-err-text").css('display', 'block');
@@ -234,15 +230,16 @@ $('.participation-event').click(function(e) {
     } else {
         $(".no-held-err-text").css('display', 'none');
     }
-
-    if (errFlag === 1) {
-        alert("未入力項目があります。")
+    if(errFlag === 1){
+        alert("未入力項目があります")
     }
+    
 
 
     reader.onload = function(event) {
         img.onload = function() {
             var data = { data: img.src.split(',')[1] };
+            alert("処理開始")
             $.ajax({
                 url: 'http://192.168.137.1:8080/api/event/image.php', //送信先
                 type: 'POST', //送信方法
@@ -284,13 +281,16 @@ $('.participation-event').click(function(e) {
                     datatype: 'json', //受け取りデータの種類
                     data: createEventInfo
                 }).done(function(e) {
+                    alert("成功")
                     sendTag(e['data']);
-                    location.href = '../../event-list/'
+                    location.href = '../index.html'
                 }).fail(function(e) {
+                    alert("失敗")
                     console.log('通信失敗');
                     console.log(e);
                 });
             }).fail(function(response) {
+                alert("失敗２")
                 console.log('通信失敗');
                 console.log(response);
             });
