@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../../vender/bootstrap-4.4.1-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../css/index.css">
+    <link rel="stylesheet" href="../../../vender/sidemenu/drawer.min/index.css">
     <link rel="stylesheet" href="../../../css/general/sidemenu.css">
     <link rel="stylesheet" href="../../../vender/sweetalert2/sweetalert2.min.css" />
     <link rel="stylesheet" href="../../../css/attendance-confirmation.css" />
@@ -42,7 +42,7 @@
                     </div>
 
                     <div class="no-login">
-                        <li><a class="drawer-menu-item text-white" href="../../../">ログイン</a></li>
+                        <li><a class="drawer-menu-item text-white" href="../../../index.html">ログイン</a></li>
                     </div>
                 </ul>
             </nav>
@@ -61,10 +61,12 @@
                     </div>
                 </div>
 
+            <!--
                 <div class="card qrcode-box">
                     <div id="qrcode-table"></div>
                     <p>QRコードを専用アプリから読み取ってください</p>
                 </div>
+            -->
             </div>
 
             <div class="card attendance-box">
@@ -85,7 +87,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">ユーザー名</th>
-                                    <th scope="col">出席状況</th>
+                            <!--    <th scope="col">出席状況</th>   -->
                                     <th scope="col">手動で切り替える</th>
                                 </tr>
                             </thead>
@@ -97,10 +99,12 @@
                                             <p></p>
                                         </div>
                                     </td>
+                                <!--
                                     <td>
                                         </svg>
                                         <img src="" class="svg">
                                     </td>
+                                -->
                                     <td>
                                         <div class="dropdown user-status">
                                             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">出席確認済み</button>

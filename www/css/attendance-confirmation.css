@@ -1,6 +1,5 @@
 .card {
-    margin: 20px;
-    padding: 10px;
+    margin: 2% 2% 2% 2%;
 }
 
 .card-box {
@@ -8,35 +7,34 @@
 }
 
 .organizer-box {
-    width: calc(50% - 40px);
-    min-width: max-content;
+    margin: 2% 2% 2% 2%;
+    width: 95%;
     height: 200px;
     float: left;
 }
 
 .user-icon {
-    margin: 0 0 0 50px;
+    margin: 0 0 0 0;
     position: relative;
 }
 
 .user-icon img {
-    height: 100px;
-    width: auto;
-    float: left;
+    height: 50%;
+    width: 50%;
+    margin: 10% 5% 5% 5%;
 }
 
 .user-icon p {
-    position: absolute;
-    top: 50%;
-    left: 180px;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    margin-bottom: 3%;
+    margin-right: 2%;
+    font-size: 120%;
+    margin: 35% 15% 2% 2%;
+    float: right;
 }
 
+/*
 .qrcode-box {
-    width: calc(50% - 40px);
-    min-width: max-content;
+    margin: 2% 2% 2% 2%;
     height: 200px;
     float: left;
     display: block;
@@ -52,6 +50,7 @@
     margin: 0 0 0 10px;
     float: left;
 }
+*/
 
 .dropdown {
     margin: 20px;
@@ -63,27 +62,36 @@
 }
 
 .attendance-table .user-icon p {
-    position: absolute;
-    top: 20px;
-    left: 120px;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    margin-top: 25%;
+    left: 65%;
+    font-size: 95%;
 }
 
 .attendance-table .user-icon img {
-    width: 50px;
-    height: auto;
+    width: 45%;
+    height: 45%;
+    margin: 2% 2% 2% 2%;
 }
 
 .attendance-table .dropdown {
-    width: 120px;
-    margin: 0;
+    width: 9;
+    margin: 20% 0 0 0;
     text-align: left;
 }
 
+.table td, .table th {
+    padding: 3%;
+    font-size: 70%;
+    border-top: 1px solid #dee2e6;
+}
+
+h2{
+    margin: 3% 0 0 3%;
+}
+
+/*
 .svg {
     width: 50px;
     display: block;
-    /* margin: 20px auto 0 0; */
 }
+*/
