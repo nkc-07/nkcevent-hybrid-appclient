@@ -36,8 +36,9 @@
             </button>
             <nav class="drawer-nav navbar-dark bg-dark" role="navigation">
                 <ul class="drawer-menu">
-                    <li><a class="drawer-menu-item text-white" href="../../event-list/index.html">トップページ</a></li>
+                    <li><a class="drawer-menu-item text-white" href="../../index.html">トップページ</a></li>
                     <li><a class="drawer-menu-item text-white" href="../index.html">イベント一覧</a></li>
+
                     <li><span class="border-top"></span></li>
 
                     <div class="login" style="display: none;">
@@ -48,7 +49,7 @@
                     </div>
 
                     <div class="no-login">
-                        <li><a class="drawer-menu-item text-white" href="../../html/">ログイン</a></li>
+                        <li><a class="drawer-menu-item text-white" href="../../index.html">ログイン</a></li>
                     </div>
                 </ul>
             </nav>
@@ -57,20 +58,25 @@
 
     <main>
         <div class="detail-box">
+            <p class="no-held-err-text" id="pass-err">開催日が設定されていません。</p>
             <div class="day-box" for="date-picker" tabindex="0">
                 <h3 class="held-month" style="padding: 15px 0 0 15px;">??</h3>
                 <h3 class="held-day" style="margin: 0 0 0 50px;">??</h3>
             </div>
             <p class="h2"><span class="held-time">??:??</span>～</p>
 
+        
+            
             <div class="event-top">
                 <input type="datetime-local" class="held-date" min="2020-10-06T12:00">
 
                 <input type="text" class="form-control event-name" placeholder="Event Title">
+                <p class="no-text-err-text" id="pass-err">Event Titleが未入力です</p>
                 <p class="create-day">2020/12/31</p>
 
                 <label>
                     <img src="../../image/no_image.png" class="event-img">
+                    <p class="no-err-img-text" id="pass-err">画像が設定されていません</p>
                     <form id="event-img">
                         <input type="file" class="send-event-img" accept="image/*">
                     </form>
@@ -110,20 +116,28 @@
             <div class="card event-box">
                 <h2>イベント詳細</h2>
                 <p>開催住所</p>
-                <input type="text" class="postal-code form-control w-25" placeholder="郵便番号" autocomplete="postal-code">
+                <p class="no-postal-err-text" id="pass-err">郵便番号が未入力です。</p>
+                <input type="text" class="postal-code form-control " placeholder="郵便番号" autocomplete="postal-code">
                 <div>
-                    <input type="text" class="map cities form-control w-50 mr-2" placeholder="市町村名" disabled>
-                    <input type="text" class="map street-number form-control w-25" placeholder="番地">
+                    <input type="text" class="map cities form-control " placeholder="市町村名" disabled>
                 </div>
+                <input type="text" class="map street-number form-control " placeholder="番地">
+                <p class="no-err-address-text" id="pass-err">番地が未入力です。</p>
 
                 <p>イベントの詳細情報</p>
-                <textarea id="markdown-editor" class="form-control event-comment" cols="30" rows="10" placeholder="イベントの詳細情報(1000文字まで)"></textarea>
+                <textarea id="
+                " class="form-control event-comment" border-color="red" cols="30" rows="10" placeholder="イベントの詳細情報(1000文字まで)"></textarea>
+                <p class="no-err-comment-text" id="pass-err">コメントが未入力です。</p>
 
                 <p>定員数</p>
                 <input type="number" class="form-control member_limit" min="2">
+                <p class="err-member-limit-text" id="pass-err">定員数が入力されていません。</p>
+                <p class="err2-member-limit-text" id="pass-err">人数が1人ではイベント作成できません</p>
+
 
                 <p>締め切り日時</p>
                 <input type="date" class="form-control deadline-date">
+                <p class="err-deadline-date-text" id="pass-err">締め切りが設定されていません。</p>
             </div>
             <div class="text-right">
                 <button type="submit" class="btn participation-event under-button">イベントを作成</button>

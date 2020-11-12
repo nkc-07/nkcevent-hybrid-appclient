@@ -8,12 +8,12 @@ $(function() {
             }
         })
         .done(function(response) {
-            if (!response.data.login) { location.href = '/www/'; }
+            if (!response.data.login) { location.href = '../../index.html'; }
         })
         .fail(function(response) {
             console.log('通信失敗');
             console.log(response);
-            location.href = '/www/event-list/';
+            location.href = '../event-list/';
         })
 
     $('input[type="number"].member_limit').keyup(function(e) {
@@ -139,6 +139,7 @@ $('.send-event-img').on('change', function(e) {
     reader.onload = function(e) {
         $('.event-img').attr('src', e.target.result);
     }
+    $(".event-img").attr("src", "../../image/no_image.png")
     reader.readAsDataURL(e.target.files[0]);
 });
 
@@ -148,14 +149,108 @@ $('.participation-event').click(function(e) {
     var reader = new FileReader();
     var file = $('.send-event-img').prop('files')[0];
     console.log(file);
-    if (file.type.match(/^image\/(bmp|png|jpeg|gif)$/) === null) {
-        alert("対応画像ファイル[bmp|png|jpeg|gif]");
-        return;
+
+    
+    var errFlag = 0;
+
+    if (!file) {
+        console.log("画像なし");
+        $('.no-err-img-text').css('display', 'block');
+        errFlag = 1;
+    }else {
+        $('.no-err-img-text').css('display', 'none')
+        if (file.type.match(/^image\/(bmp|png|jpeg|gif)$/) === null) {
+            alert("対応画像ファイル[bmp|png|jpeg|gif]");
+            return;
+        }
     }
+
+    //イベント名未入力処理
+    if ($('.event-name').val() === "") {
+        $('.no-text-err-text').css('display', 'block');
+        $('.event-name').css('border-color', 'red');
+        errFlag = 1;
+    } else {
+        $('.no-text-err-text').css('display', 'none');
+        $('.event-name').css('border-color', 'silver');
+    }
+
+    //郵便番号未入力処理
+    if ($('.postal-code').val() === "") {
+        $(".no-postal-err-text").css('display', 'block');
+        $(".postal-code").css('border-color', 'red');
+        errFlag = 1;
+    } else {
+        $(".no-postal-err-text").css('display', 'none');
+        $(".postal-code").css('border-color', 'silver');
+    }
+
+    //人数未入力処理
+    if ($('.member_limit').val() === "") {
+        $(".err2-member-limit-text").css('display', 'none');
+        $(".err-member-limit-text").css('display', 'block');
+        $(".member_limit").css('border-color', 'red');
+        errFlag = 1;
+    } else if ($('.member_limit').val() == "1") {
+        $(".err-member-limit-text").css('display', 'none');
+        $(".err2-member-limit-text").css('display', 'block');
+        $(".member_limit").css('border-color', 'red');
+        errFlag = 1;
+    } else {
+        $(".err2-member-limit-text").css('display', 'none');
+        $(".err-member-limit-text").css('display', 'none');
+        $(".member_limit").css('border-color', 'silver');
+    }
+
+    //締め切り日時未設定処理
+    if ($('.deadline-date').val() === "") {
+        $(".err-deadline-date-text").css('display', 'block');
+        $(".deadline-date").css('border-color', 'red');
+        errFlag = 1;
+    } else {
+        $(".err-deadline-date-text").css('display', 'none');
+        $(".deadline-date").css('border-color', 'silver');
+    }
+    
+    
+    //番地未入力処理
+    if ($('.street-number').val() === "") {
+        $(".no-err-address-text").css('display', 'block');
+        $(".street-number").css('border-color', 'red');
+        errFlag = 1;
+    } else {
+        $(".no-err-address-text").css('display', 'none');
+        $(".street-number").css('border-color', 'silver');
+    }
+    
+    //開催日未設定処理
+    if ($('.held-time').text() === "??:??") {
+        $(".no-held-err-text").css('display', 'block');
+        errFlag = 1;
+    } else {
+        $(".no-held-err-text").css('display', 'none');
+    }
+
+    //コメント未入力処理
+    if (simplemde.value() === ""){
+        $(".no-err-comment-text").css("display","block");
+        $(".CodeMirror").css("border-color","#ff0000")
+        errFlag = 1;
+    }else{
+        $(".no-err-comment-text").css("display", "none");
+        $(".CodeMirror").css("border-color", "#c0c0c0")
+    }
+    
+    if(errFlag === 1){
+        alert("未入力項目があります")
+    }
+    
+
 
     reader.onload = function(event) {
         img.onload = function() {
             var data = { data: img.src.split(',')[1] };
+            alert("処理開始")
             $.ajax({
                 url: 'http://192.168.137.1:8080/api/event/image.php', //送信先
                 type: 'POST', //送信方法
@@ -198,7 +293,7 @@ $('.participation-event').click(function(e) {
                     data: createEventInfo
                 }).done(function(e) {
                     sendTag(e['data']);
-                    location.href = '/www/event-list/'
+                    location.href = '../index.html'
                 }).fail(function(e) {
                     console.log('通信失敗');
                     console.log(e);

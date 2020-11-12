@@ -12,7 +12,7 @@ npm-debug.log
 # log
 *.log
 
-# vscode
-.vscode/
+# vscode log
+.vscode
 jsconfig.json
 typings/

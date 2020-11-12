@@ -1,4 +1,4 @@
-input {
+    input {
     margin: 0 0 15px 0;
 }
 
@@ -21,6 +21,7 @@ input {
     background-size: 100% auto;
     float: left;
     margin: 10px;
+
 }
 
 .held-date {
@@ -32,6 +33,7 @@ input {
     width: 100px;
     height: 100px;
     padding: 0px;
+    z-index: 2;
 }
 
 .held-date[type="datetime-local"]::-webkit-calendar-picker-indicator {
@@ -58,8 +60,10 @@ input {
 }
 
 .event-img {
-    width: 800px;
+    max-width: 500px;
+    width: 95%;
     height: auto;
+
     background-color: lavender;
     object-fit: cover;
     max-height: 800px;
@@ -142,3 +146,38 @@ input {
 .clear-float {
     display: inline-block;
 }
+
+.no-text-err-text{
+        font-size: initial;
+        font-size: 15px;
+        color: red;
+        display: none;
+        text-align: left
+}
+
+.no-held-err-text,
+.no-err-comment-text,
+.err2-member-limit-text,
+.no-err-address-text,
+.err-member-limit-text,
+.err-deadline-date-text,
+.no-postal-err-text{
+        font-size: initial;
+        font-size: 15px;
+        color: red;
+        display: none;
+}
+
+.no-err-img-text{
+        font-size: initial;
+        font-size: 25px;
+        color: red;
+        display: none;
+}
+
+
+
+.form-control{
+    width: 100% ;
+}
+
