@@ -30,9 +30,7 @@ if (localStorage.getItem('token') !== null) {
             .done(function(response) {
                 console.log(response);
                 localStorage.removeItem('token');
-                //alert(cordova.file.applicationDirectory)
-                //location.href = cordova.file.applicationDirectory + 'www/index.html';
-                location.href = '../../index.html'
+                location.href = cordova.file.applicationDirectory + 'www/index.html';
             })
             .fail(function(response) {
                 console.log('通信失敗');
