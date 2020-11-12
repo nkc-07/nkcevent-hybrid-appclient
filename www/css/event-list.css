@@ -10,12 +10,12 @@
 }
 
 .event-box .card {
-    margin: 20px 0 0 20px;
+    margin: 5% 0% 5% 0%;
 }
 
 .event-box .card,
 .event-box .card img {
-    width: 300px;
+    width: 100%;
 }
 
 .event-image {
@@ -51,6 +51,7 @@ a.card-rink {
 
 .user-info {
     float: right;
+    margin: 1% 1% 1% 1%;
 }
 
 .user-info p {
