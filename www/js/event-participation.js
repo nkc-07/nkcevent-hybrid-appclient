@@ -47,9 +47,9 @@ function geteventparticipation() {
                         card.event_id
                     );
                     eventparticipationDom.find(".thumbnail img").attr("src", 'http://192.168.137.1:8080/' + card.image);
-                    eventparticipationDom.find(".thumbnail p").text(card.held_date)
+                    eventparticipationDom.find(".card-body .card-date").text(card.held_date)
                     eventparticipationDom.find(".card-body .card-title").text(card.event_name);
-                    eventparticipationDom.find(".card-body p").text(card.map);
+                    eventparticipationDom.find(".card-body card-map").text(card.map);
                     eventparticipationDom.find(".user-icon p").text(card.organizer);
                     eventparticipationDom.find(".user-icon img").attr("src", 'http://192.168.137.1:8080/' + card.icon);
                     eventparticipationDom.show();
