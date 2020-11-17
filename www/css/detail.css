@@ -1,7 +1,13 @@
+main {
+    height: calc(100vh - 76px);
+    width: calc(100vh - 300px);
+}
+
 .navbar a img {
     width: 40px;
     height: auto;
 }
+
 
 /*.detail-box {
     margin: 20px;
@@ -86,6 +92,7 @@
     display: inline;
 }
 
+
 /*.event-info div {
     width: 50%;
     float: left;
@@ -95,10 +102,12 @@
     vertical-align: middle;
 }
 
-.event-info .googlemap-frame{
-    width: auto; 
+.event-info .googlemap-frame {
+    width: auto;
     height: 300px;
 }
+
+
 /*.event-info .googlemap-addres {
     float: left;
     display: contents;

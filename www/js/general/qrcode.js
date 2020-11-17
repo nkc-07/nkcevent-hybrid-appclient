@@ -90,7 +90,7 @@ var done = function(err, status) {
             };
 
             QRScanner.destroy();
-            $('main').show();
+            $('.detail-box').show();
             $('body').css('background-color', ''); // qrcode実行時に追加されるものを初期状態に戻す
         }
     }
@@ -102,13 +102,33 @@ var done = function(err, status) {
             text: 'アプリに使用制限がかかります...',
         });
     } else {
-        $('main').hide();
+        $('.detail-box').hide();
+
+        $('main').on('click', function() {
+            Swal.fire({
+                title: '出席確認を中止しますか？',
+                showCancelButton: true,
+                confirmButtonText: "はい",
+                cancelButtonText: 'いいえ',
+                cancelButtonColor: '#4169E1',
+                confirmButtonColor: '#ff0000'
+            }).then((result) => {
+                console.log(result)
+                if (result.value == true) {
+                    $('main').off('click');
+                    QRScanner.destroy();
+                    $('.detail-box').show();
+                    $('body').css('background-color', '');
+                }
+            })
+        });
         QRScanner.scan(displayContents);
         QRScanner.show(function(status) {
             console.log(status);
         });
     }
 };
+
 
 function onDone(err, status) {
     if (err) {
