@@ -29,7 +29,8 @@
 
 .event-img {
     max-width: 900px;
-    height: auto;
+    max-height: 250px;
+    height: 95%;
     width: 95%;
 }
 
@@ -96,7 +97,8 @@
 }
 
 .event-info .googlemap-frame{
-    width: auto; 
+    margin: 1% 1% 1% 2%;
+    width: 95%; 
     height: 300px;
 }
 /*.event-info .googlemap-addres {
