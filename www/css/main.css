@@ -11,10 +11,6 @@
     float: right;
 }
 
-.card {
-    display: inline-block;
-}
-
 .card.login-card ul {
     list-style: none;
 }
@@ -23,11 +19,11 @@
     margin-right: 10%;
 }
 
-.card.login-card .btn {
-     /* margin-left: 80%; */
-     /*position: absolute;*/
+/* .card.login-card .btn {
+     margin-left: 80%;
+     position: absolute;
      right: 20px;
-}
+}  */
 
 .password-change {
     margin-bottom: 20px;
@@ -35,16 +31,21 @@
 }
 
 .card {
-    float: left;
-    width: 55%;
+    /* float: left; */
+    width: 95%;
     height: auto;
-    margin: 50px 0 0 30px;
-    padding: 20px;
+    margin: 3% 3% 3% 3%;
+    /* padding: 20px; */
+    display: inline-block;
 }
 
 .login-card {
-    width: auto;
-    min-width: 35%;
+    width: 95%;
+    /* min-width: 35%; */
+}
+
+.login-title{
+    margin: 1% 1% 1% 1%;
 }
 
 .login-err-text {
@@ -53,16 +54,31 @@
 }
 
 .login-button {
-    margin: 0 0 0 30px;
-    position: absolute;
+    margin: 2% 2% 2% 2%;
+    /* position: absolute; */
     white-space: nowrap;
+    float: right;
 }
 
 .btn-mypage {
-    margin: 0 30px 0 0;
+    margin: 2% 2% 2% 2%;
     white-space: nowrap;
+    float: right;
 }
 
 .login-err {
     display: none;
+}
+
+.create-sign{
+    margin: 2% 2% 0% 2%;
+    float: left;
+}
+
+.form-group{
+    margin: 2% 2% 2% 2%;
+}
+
+.form-control{
+    width: 98%;
 }
