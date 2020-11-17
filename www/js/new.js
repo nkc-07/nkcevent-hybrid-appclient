@@ -150,14 +150,14 @@ $('.participation-event').click(function(e) {
     var file = $('.send-event-img').prop('files')[0];
     console.log(file);
 
-    
+
     var errFlag = 0;
 
     if (!file) {
         console.log("画像なし");
         $('.no-err-img-text').css('display', 'block');
         errFlag = 1;
-    }else {
+    } else {
         $('.no-err-img-text').css('display', 'none')
         if (file.type.match(/^image\/(bmp|png|jpeg|gif)$/) === null) {
             alert("対応画像ファイル[bmp|png|jpeg|gif]");
@@ -211,8 +211,8 @@ $('.participation-event').click(function(e) {
         $(".err-deadline-date-text").css('display', 'none');
         $(".deadline-date").css('border-color', 'silver');
     }
-    
-    
+
+
     //番地未入力処理
     if ($('.street-number').val() === "") {
         $(".no-err-address-text").css('display', 'block');
@@ -222,7 +222,7 @@ $('.participation-event').click(function(e) {
         $(".no-err-address-text").css('display', 'none');
         $(".street-number").css('border-color', 'silver');
     }
-    
+
     //開催日未設定処理
     if ($('.held-time').text() === "??:??") {
         $(".no-held-err-text").css('display', 'block');
@@ -232,25 +232,24 @@ $('.participation-event').click(function(e) {
     }
 
     //コメント未入力処理
-    if (simplemde.value() === ""){
-        $(".no-err-comment-text").css("display","block");
-        $(".CodeMirror").css("border-color","#ff0000")
+    if (simplemde.value() === "") {
+        $(".no-err-comment-text").css("display", "block");
+        $(".CodeMirror").css("border-color", "#ff0000")
         errFlag = 1;
-    }else{
+    } else {
         $(".no-err-comment-text").css("display", "none");
         $(".CodeMirror").css("border-color", "#c0c0c0")
     }
-    
-    if(errFlag === 1){
+
+    if (errFlag === 1) {
         alert("未入力項目があります")
     }
-    
+
 
 
     reader.onload = function(event) {
         img.onload = function() {
             var data = { data: img.src.split(',')[1] };
-            alert("処理開始")
             $.ajax({
                 url: 'http://192.168.137.1:8080/api/event/image.php', //送信先
                 type: 'POST', //送信方法

@@ -1,7 +1,13 @@
+main {
+    height: calc(100vh - 76px);
+    width: calc(100vh - 300px);
+}
+
 .navbar a img {
     width: 40px;
     height: auto;
 }
+
 
 /*.detail-box {
     margin: 20px;
@@ -87,6 +93,7 @@
     display: inline;
 }
 
+
 /*.event-info div {
     width: 50%;
     float: left;
@@ -101,6 +108,8 @@
     width: 95%; 
     height: 300px;
 }
+
+
 /*.event-info .googlemap-addres {
     float: left;
     display: contents;
@@ -142,4 +151,11 @@
     height: 45px;
     margin-left: auto;
     margin-right: 10px;
+}
+
+.qrcode-focus {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
 }

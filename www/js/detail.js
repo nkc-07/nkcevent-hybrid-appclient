@@ -198,6 +198,7 @@ $(function() {
                             $('.attendance').attr('href', `../../event-list/detail/attendance-confirmation/index.html?event-id=${getRequestParams.get('event-id')}`);
                             $(".participat").hide();
                             $(".cancellation").show();
+                            $('.qrscan-active').show();
                             $(".cancellation").click(function() {
                                 console.log("中止ボタン");
                                 //↓通知処理
@@ -220,6 +221,7 @@ $(function() {
                             /* 参加者イベント処理 */
                             $(".participat").hide();
                             $(".cancel").show();
+                            $('.qrscan-active').show();
                             $(".cancel").click(function() {
                                 Swal.fire({
                                     title: 'イベントに参加をキャンセルしますか？',
