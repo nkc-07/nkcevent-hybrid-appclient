@@ -150,3 +150,10 @@ main {
     margin-left: auto;
     margin-right: 10px;
 }
+
+.qrcode-focus {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+}

@@ -57,6 +57,7 @@ $('#qrcode').on('click', function() {
 var done = function(err, status) {
     function displayContents(err, text) {
         if (err) {
+            $('.qrcode-focus').hide();
             Swal.fire({
                 icon: 'error',
                 title: 'error',
@@ -86,11 +87,14 @@ var done = function(err, status) {
                         icon: 'success',
                         title: '出席登録を行いました',
                     })
+                    $('.qrcode-focus').hide();
                 };
             };
 
             QRScanner.destroy();
             $('.detail-box').show();
+            $('.qrcode-focus').hide();
+            $('main').off('click');
             $('body').css('background-color', ''); // qrcode実行時に追加されるものを初期状態に戻す
         }
     }
@@ -103,6 +107,7 @@ var done = function(err, status) {
         });
     } else {
         $('.detail-box').hide();
+        $('.qrcode-focus').show();
 
         $('main').on('click', function() {
             Swal.fire({
@@ -118,6 +123,7 @@ var done = function(err, status) {
                     $('main').off('click');
                     QRScanner.destroy();
                     $('.detail-box').show();
+                    $('.qrcode-focus').hide();
                     $('body').css('background-color', '');
                 }
             })
