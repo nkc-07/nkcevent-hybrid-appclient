@@ -20,6 +20,7 @@
         <allow-intent href="market:*" />
         <edit-config file="AndroidManifest.xml" target="/manifest/application" mode="merge">
             <application android:usesCleartextTraffic="true" />
+            <preference name="DisallowOverscroll" value="true" />
         </edit-config>
     </platform>
     <platform name="ios">
