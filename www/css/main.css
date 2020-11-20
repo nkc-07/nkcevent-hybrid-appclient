@@ -39,6 +39,10 @@
     display: inline-block;
 }
 
+.card .title-card{
+    margin: 1% 1% 1% 1%;
+}
+
 .login-card {
     width: 95%;
     /* min-width: 35%; */
@@ -81,4 +85,38 @@
 
 .form-control{
     width: 98%;
+}
+
+.playsize{
+    width: 28.5% ;
+    height: auto;
+    /* height: 30%; */
+}
+
+.minesize{
+    width: 36.5%;
+    height: auto;
+    /* height: 40%; */
+}
+
+.pcIphonesize{
+    width: 31.5%;
+    height: auto;
+    /* height: 25%; */
+}
+
+.card .explanation{
+    font-size: 100%;
+}
+
+.card .title {
+    font-size: 210%;
+}
+
+.card .subtitle{
+    font-size: 100%;
+}
+
+.card .img-group{
+    margin: 1% 1% 1% 1%;
 }
