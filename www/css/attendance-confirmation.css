@@ -9,8 +9,8 @@
 .organizer-box {
     margin: 2% 2% 2% 2%;
     width: 95%;
-    height: 200px;
-    float: left;
+    /* height: 200px; */
+    /* float: left; */
 }
 
 .user-icon {
@@ -31,6 +31,7 @@
     margin: 35% 15% 2% 2%;
     float: right;
 }
+
 
 /*
 .qrcode-box {
@@ -79,15 +80,17 @@
     text-align: left;
 }
 
-.table td, .table th {
+.table td,
+.table th {
     padding: 3%;
     font-size: 70%;
     border-top: 1px solid #dee2e6;
 }
 
-h2{
+h2 {
     margin: 3% 0 0 3%;
 }
+
 
 /*
 .svg {

@@ -31,7 +31,7 @@
             <nav class="drawer-nav navbar-dark bg-dark" role="navigation">
                 <ul class="drawer-menu">
                     <li><a class="drawer-menu-item text-white" href="../../../index.html">トップページ</a></li>
-                    <li><a class="drawer-menu-item text-white" href="../../index.html">イベント一覧</a></li>  
+                    <li><a class="drawer-menu-item text-white" href="../../index.html">イベント一覧</a></li>
                     <li><span class="border-top"></span></li>
 
                     <div class="login" style="display: none;">
@@ -58,15 +58,16 @@
                     <div class="user-icon blockquote text-left">
                         <img src="" alt="user image">
                         <p>user name</p>
+                        <button type="button" class="btn btn-primary show-qrcode">出席確認を行う為のQRコードを表示</button>
                     </div>
                 </div>
 
-            <!--
-                <div class="card qrcode-box">
-                    <div id="qrcode-table"></div>
+
+                <div class="qrcode-box" style="display: none;">
+                    <div class="qrcode-table"></div>
                     <p>QRコードを専用アプリから読み取ってください</p>
                 </div>
-            -->
+
             </div>
 
             <div class="card attendance-box">
@@ -87,7 +88,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">ユーザー名</th>
-                            <!--    <th scope="col">出席状況</th>   -->
+                                    <!--    <th scope="col">出席状況</th>   -->
                                     <th scope="col">手動で切り替える</th>
                                 </tr>
                             </thead>
@@ -99,7 +100,7 @@
                                             <p></p>
                                         </div>
                                     </td>
-                                <!--
+                                    <!--
                                     <td>
                                         </svg>
                                         <img src="" class="svg">

@@ -111,11 +111,6 @@ $.ajax({
         userList = response.data.info;
         qrcodeValue = response.data.qrcode;
         showAttendanceList("all");
-        $('#qrcode-table').qrcode({
-            width: 180,
-            height: 180,
-            text: qrcodeValue
-        });
     })
     .fail(function(response) {
         console.log('通信失敗');
@@ -124,6 +119,18 @@ $.ajax({
 
 $(function() {
     $('.detail-back-link').attr('href', '../../../event-list/detail/index.html?event-id=' + getRequestParams.get('event-id'));
+
+    let qrDom = $('.qrcode-box').clone();
+    $('.show-qrcode').on('click', function() {
+        Swal.fire({
+            html: qrDom.show()
+        });
+        $('.qrcode-table').qrcode({
+            width: 180,
+            height: 180,
+            text: qrcodeValue
+        });
+    })
 })
 
 function showAttendanceList(changeDisplay) {
