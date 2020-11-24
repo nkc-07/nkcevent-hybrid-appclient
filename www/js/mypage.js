@@ -49,7 +49,7 @@ $(function () {
       let birtday = memberInfo['birthday'].split('-')
       $('.user-icon').attr(
         'src',
-        'http://52.196.112.175/' + memberInfo['icon']
+        memberInfo['icon']
       )
       $('.nickname').val(memberInfo['nickname'])
       $('.mailaddress').val(memberInfo['mailaddress'])

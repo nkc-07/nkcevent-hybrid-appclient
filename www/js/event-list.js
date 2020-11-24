@@ -26,7 +26,7 @@ $(function() {
                     cardDom.find('.user-info p').text(cardItem.organizer)
                     cardDom
                         .find('.user-info img')
-                        .attr('src', 'http://52.196.112.175/' + cardItem.icon)
+                        .attr('src', cardItem.icon)
                     cardDom.show()
                     $('.card-columns').append(cardDom)
                 })

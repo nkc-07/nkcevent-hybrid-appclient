@@ -46,12 +46,12 @@ function geteventparticipation() {
                         "www/event-list/detail/index.html?event-id=" +
                         card.event_id
                     );
-                    eventparticipationDom.find(".thumbnail img").attr("src", 'http://52.196.112.175/' + card.image);
+                    eventparticipationDom.find(".thumbnail img").attr("src",card.image);
                     eventparticipationDom.find(".card-body .card-date").text(card.held_date)
                     eventparticipationDom.find(".card-body .card-title").text(card.event_name);
                     eventparticipationDom.find(".card-body card-map").text(card.map);
                     eventparticipationDom.find(".user-icon p").text(card.organizer);
-                    eventparticipationDom.find(".user-icon img").attr("src", 'http://52.196.112.175/' + card.icon);
+                    eventparticipationDom.find(".user-icon img").attr("src",card.icon);
                     eventparticipationDom.show();
                     $(".card-columns").append(eventparticipationDom);
                 });
