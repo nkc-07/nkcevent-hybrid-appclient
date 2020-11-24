@@ -11,7 +11,7 @@ $(function () {
 
   $.ajax({
     //ログインチェック
-    url: 'http://192.168.137.1:8080/api/member/logincheck.php', //送信先
+    url: 'http://52.196.112.175/api/member/logincheck.php', //送信先
     type: 'POST', //送信方法
     datatype: 'json', //受け取りデータの種類
     data: {
@@ -30,7 +30,7 @@ $(function () {
     })
 
   $.ajax({
-    url: 'http://192.168.137.1:8080/api/member/memberinfo.php', //送信先
+    url: 'http://52.196.112.175/api/member/memberinfo.php', //送信先
     type: 'GET', //送信方法
     datatype: 'json', //受け取りデータの種類
     data: {
@@ -49,7 +49,7 @@ $(function () {
       let birtday = memberInfo['birthday'].split('-')
       $('.user-icon').attr(
         'src',
-        'http://192.168.137.1:8080/' + memberInfo['icon']
+        'http://52.196.112.175/' + memberInfo['icon']
       )
       $('.nickname').val(memberInfo['nickname'])
       $('.mailaddress').val(memberInfo['mailaddress'])
@@ -83,7 +83,7 @@ $(function () {
           $('#repass').val()
         ) {
           $.ajax({
-            url: 'http://192.168.137.1:8080/api/member/password.php', //送信先
+            url: 'http://52.196.112.175/api/member/password.php', //送信先
             type: 'POST', //送信方法
             data: {
               password: $('#modal')
@@ -156,7 +156,7 @@ $(function () {
     console.log(sendMemberInfo)
     if (flg) {
       $.ajax({
-        url: 'http://192.168.137.1:8080/api/member/memberinfo.php', //送信先
+        url: 'http://52.196.112.175/api/member/memberinfo.php', //送信先
         type: 'PUT', //送信方法
         datatype: 'json', //受け取りデータの種類
         data: sendMemberInfo
@@ -194,7 +194,7 @@ function getParticipationEvent () {
   let eventparticipationDom = $('.participation-event')
 
   $.ajax({
-    url: 'http://192.168.137.1:8080/api/member/memberparticipation.php', //送信先
+    url: 'http://52.196.112.175/api/member/memberparticipation.php', //送信先
     type: 'GET', //送信方法
     datatype: 'json', //受け取りデータの種類
     data: {
@@ -256,7 +256,7 @@ function getUserIconName () {
         var data = { data: img.src.split(',')[1] }
         if (userIconChangeFlag) {
           $.ajax({
-            url: 'http://192.168.137.1:8080/api/event/image.php', //送信先
+            url: 'http://52.196.112.175/api/event/image.php', //送信先
             type: 'POST', //送信方法
             data: {
               name: file['name'],
@@ -269,7 +269,7 @@ function getUserIconName () {
 
               let imageName = JSON.parse(response)
               resolve(
-                'http://192.168.137.1:8080/public/image/' + imageName['data']
+                'http://52.196.112.175/public/image/' + imageName['data']
               )
             })
             .fail(function (response) {
@@ -293,7 +293,7 @@ function changePassword () {
     sendMemberInfo.hasOwnProperty('new_password')
   ) {
     $.ajax({
-      url: 'http://192.168.137.1:8080/api/member/password.php', //送信先
+      url: 'http://52.196.112.175/api/member/password.php', //送信先
       type: 'PUT', //送信方法
       data: {
         old_password: sendMemberInfo['old_password'],

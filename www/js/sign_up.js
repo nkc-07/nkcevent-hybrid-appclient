@@ -81,7 +81,7 @@ $(function() {
 
             if (flg == true) {
                 $.ajax({
-                    url: 'http://192.168.137.1:8080/api/member/memberinfo.php',
+                    url: 'http://52.196.112.175/api/member/memberinfo.php',
                     type: 'POST',
                     data: {
                         mailaddress: $('input[name=mail]').val(),

@@ -1,6 +1,6 @@
 $(function() {
     $.ajax({ //ログインチェック
-            url: 'http://192.168.137.1:8080/api/member/logincheck.php', //送信先
+            url: 'http://52.196.112.175/api/member/logincheck.php', //送信先
             type: 'POST', //送信方法
             datatype: 'json', //受け取りデータの種類
             data: {
@@ -60,7 +60,7 @@ let createEventInfo = {
 }
 
 $.ajax({
-    url: 'http://192.168.137.1:8080/api/member/memberinfo.php', //送信先
+    url: 'http://52.196.112.175/api/member/memberinfo.php', //送信先
     type: 'GET', //送信方法
     datatype: 'json', //受け取りデータの種類
     data: {
@@ -69,7 +69,7 @@ $.ajax({
 }).done(function(response) {
     let memberInfo = response['data']['info'];
 
-    $('.user-img').attr('src', 'http://192.168.137.1:8080' + memberInfo['icon']);
+    $('.user-img').attr('src', 'http://52.196.112.175' + memberInfo['icon']);
     $('.nickname').text(memberInfo['nickname']);
 
     createEventInfo['token_id'] = localStorage.getItem('token');
@@ -251,7 +251,7 @@ $('.participation-event').click(function(e) {
         img.onload = function() {
             var data = { data: img.src.split(',')[1] };
             $.ajax({
-                url: 'http://192.168.137.1:8080/api/event/image.php', //送信先
+                url: 'http://52.196.112.175/api/event/image.php', //送信先
                 type: 'POST', //送信方法
                 data: {
                     "name": file["name"],
@@ -286,7 +286,7 @@ $('.participation-event').click(function(e) {
                 }
 
                 $.ajax({
-                    url: 'http://192.168.137.1:8080/api/event/eventinfo.php', //送信先
+                    url: 'http://52.196.112.175/api/event/eventinfo.php', //送信先
                     type: 'POST', //送信方法
                     datatype: 'json', //受け取りデータの種類
                     data: createEventInfo

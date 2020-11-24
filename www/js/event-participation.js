@@ -3,7 +3,7 @@ let eventparticipationDom;
 
 $(function() {
     $.ajax({
-            url: 'http://192.168.137.1:8080/api/member/memberinfo.php', //送信先
+            url: 'http://52.196.112.175/api/member/memberinfo.php', //送信先
             type: 'GET', //送信方法
             datatype: 'json', //受け取りデータの種類
             data: {
@@ -28,7 +28,7 @@ function geteventparticipation() {
     let sendData = searchUrlGenerater();
     sendData.member_id = geteventInfo['member_id'];
     $.ajax({
-            url: 'http://192.168.137.1:8080/api/member/memberparticipation.php', //送信先
+            url: 'http://52.196.112.175/api/member/memberparticipation.php', //送信先
             type: 'GET', //送信方法
             datatype: 'json', //受け取りデータの種類
             data: sendData
@@ -46,12 +46,12 @@ function geteventparticipation() {
                         "www/event-list/detail/index.html?event-id=" +
                         card.event_id
                     );
-                    eventparticipationDom.find(".thumbnail img").attr("src", 'http://192.168.137.1:8080/' + card.image);
+                    eventparticipationDom.find(".thumbnail img").attr("src", 'http://52.196.112.175/' + card.image);
                     eventparticipationDom.find(".card-body .card-date").text(card.held_date)
                     eventparticipationDom.find(".card-body .card-title").text(card.event_name);
                     eventparticipationDom.find(".card-body card-map").text(card.map);
                     eventparticipationDom.find(".user-icon p").text(card.organizer);
-                    eventparticipationDom.find(".user-icon img").attr("src", 'http://192.168.137.1:8080/' + card.icon);
+                    eventparticipationDom.find(".user-icon img").attr("src", 'http://52.196.112.175/' + card.icon);
                     eventparticipationDom.show();
                     $(".card-columns").append(eventparticipationDom);
                 });

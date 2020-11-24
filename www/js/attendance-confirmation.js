@@ -20,7 +20,7 @@ let attendanceIcons = { // 出席状況のアイコンとテキスト
 
 let attendanceUserDom = $('.attendance-user');
 
-var conn = new WebSocket('ws://192.168.137.1:81?mode=attendance&participation_event=' + getRequestParams.get('event-id'));
+var conn = new WebSocket('ws://52.196.112.175:8080?mode=attendance&participation_event=' + getRequestParams.get('event-id'));
 conn.onopen = function(e) {
     console.log("Connection established!");
 };
@@ -52,7 +52,7 @@ $(document).on('click', '.user-status .dropdown-item', function(e) {
 });
 
 $.ajax({
-        url: 'http://192.168.137.1:8080/api/member/logincheck.php', //送信先
+        url: 'http://52.196.112.175/api/member/logincheck.php', //送信先
         type: 'POST', //送信方法
         datatype: 'json', //受け取りデータの種類
         data: {
@@ -66,7 +66,7 @@ $.ajax({
     })
 
 $.ajax({
-    url: 'http://192.168.137.1:8080/api/event/eventinfo.php', //送信先
+    url: 'http://52.196.112.175/api/event/eventinfo.php', //送信先
     type: 'GET', //送信方法
     datatype: 'json', //受け取りデータの種類
     data: {
@@ -78,7 +78,7 @@ $.ajax({
 })
 
 $.ajax({
-        url: 'http://192.168.137.1:8080/api/member/memberinfo.php', //送信先
+        url: 'http://52.196.112.175/api/member/memberinfo.php', //送信先
         type: 'GET', //送信方法
         datatype: 'json', //受け取りデータの種類
         data: {
@@ -90,7 +90,7 @@ $.ajax({
         if (!response['data']['info']['member_id'] == eventAttendanceId) {
             location.href = '../../../event-list/detail/?event-id=' + getRequestParams.get('event-id');
         } else {
-            $('.organizer-box img').attr('src', 'http://192.168.137.1:8080' + response['data']['info']['icon']);
+            $('.organizer-box img').attr('src', 'http://52.196.112.175' + response['data']['info']['icon']);
             $('.organizer-box p').text(response['data']['info']['nickname']);
         }
     })
@@ -100,7 +100,7 @@ $.ajax({
     })
 
 $.ajax({
-        url: 'http://192.168.137.1:8080/api/event/eventattendance.php', //送信先
+        url: 'http://52.196.112.175/api/event/eventattendance.php', //送信先
         type: 'GET', //送信方法
         datatype: 'json', //受け取りデータの種類
         data: {
@@ -140,7 +140,7 @@ function showAttendanceList(changeDisplay) {
         if (items.is_attendance == changeDisplay || changeDisplay === "all") {
             tempAttendanceUserDom = attendanceUserDom.clone();
             tempAttendanceUserDom.addClass('member-id-' + items.member_id);
-            tempAttendanceUserDom.find('.user-icon img').attr('src', 'http://192.168.137.1:8080' + items.icon);
+            tempAttendanceUserDom.find('.user-icon img').attr('src', 'http://52.196.112.175' + items.icon);
             tempAttendanceUserDom.find('.svg').attr('src', attendanceIcons[items.is_attendance].img);
             tempAttendanceUserDom.find('.dropdown-toggle').text(attendanceIcons[items.is_attendance].text);
             tempAttendanceUserDom.find('.user-icon p').text(items.nickname);

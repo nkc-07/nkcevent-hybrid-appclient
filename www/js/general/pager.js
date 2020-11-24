@@ -1,6 +1,6 @@
 $(function() {
     $.ajax({
-            url: 'http://192.168.137.1:8080/api/event/eventpager.php', //送信先
+            url: 'http://52.196.112.175/api/event/eventpager.php', //送信先
             type: 'GET', //送信方法
             datatype: 'json', //受け取りデータの種類
             data: { limit: 30 }

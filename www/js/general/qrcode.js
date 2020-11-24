@@ -20,7 +20,7 @@ $('#qrcode').on('click', function() {
             confirmButtonColor: '#ff0000'
         }).then((result) => {
             if (result.value) {
-                let conn = new WebSocket('ws://192.168.137.1:81?mode=attendance&participation_event=' + getRequestParams.get('event-id'));
+                let conn = new WebSocket('ws://52.196.112.175:8080?mode=attendance&participation_event=' + getRequestParams.get('event-id'));
                 let memberData;
                 conn.onopen = function(e) {
 
@@ -64,7 +64,7 @@ var done = function(err, status) {
                 text: '読み込めませんでした...',
             });
         } else {
-            let conn = new WebSocket('ws://192.168.137.1:81?mode=attendance&participation_event=' + getRequestParams.get('event-id'));
+            let conn = new WebSocket('ws://52.196.112.175:8080?mode=attendance&participation_event=' + getRequestParams.get('event-id'));
             let memberData;
             conn.onopen = function(e) {
 
